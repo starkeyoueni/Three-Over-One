@@ -1,0 +1,409 @@
+/* THREE OVER ONE, 2012 */
+
+/*GLOBAL*/
+    html, body{
+        margin: 0px;
+        line-height: 20px;
+        height: 100%;
+        min-height: 100%;
+        min-width: 980px;
+        
+    }
+    
+    .clearfloat:after{
+        content: " ";
+        display: block;
+        clear: both;
+    }
+    
+    .inner{
+        width: 960px;
+        padding: 0px 20px 0px 20px;
+        margin: 0px auto;
+    }
+    
+    .column.three{
+        width: 320px;
+        display: block;
+        float: left;
+    }
+    
+    span{
+        font-size: 11px;
+    }
+    
+    span.s2{
+        font-size: 16px;
+    }
+    
+    img{
+        border: 0px;
+    }
+    
+    a{
+        color: #000;
+        text-decoration: none;
+    }
+    
+    a:hover{
+        
+    }
+    
+    
+    
+    
+    
+/* HEADER */
+    
+header{
+    display: block;
+    background: #F5EFE5;
+    padding-bottom: 20px;
+    position: fixed;
+    width: 100%;
+    min-width: 980px;
+    z-index: 2;
+}
+    
+header .inner nav{
+    border-bottom: 1px solid #000;
+    padding-top: 10px;
+    padding-bottom: 9px;
+}
+    
+header .menu{
+    text-align: right;
+}
+
+header .menu a{
+    padding-left: 10px;
+}
+
+header .menu a:nth-child(-n+2){
+    padding-right: 10px;
+}
+
+header .section{
+    text-align:center;
+    /*margin: 0px 20px 0px 20px; //WIDTH WITH MARGINS*/
+}
+
+
+
+
+
+
+
+/* SECTION */
+
+section{
+    float: left;
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    background: #F5EFE5;
+    min-width: 980px;
+}
+
+section .content{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+
+/*ROW OF THREE PRODUCTS + DETAIL */
+
+section .row{
+   width: 100%;
+}
+
+
+/*PRODUCT DETAIL */
+
+section .row .product-detail{
+   width: 100%;
+   background: #fff;
+   position: relative;
+   overflow: hidden;
+}
+
+section .row .product-detail .product-detail-inner{
+    width: 480px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+section .row .product-detail .product-detail-inner.left{
+   float: left;
+}
+
+section .row .product-detail .product-detail-inner.right{
+   float: right;
+}
+
+section .row .product-detail #product-detail-items{
+    min-height: 480px;
+}
+
+section .row .product-detail #selected-items{
+    border: 1px solid #bbb;
+    margin: 0px 0px 0px 80px;
+    padding: 10px 0px;
+    width: 320px;
+    background: #F5EFE5;
+    font-size: 16px;
+    font-family: serif;
+    cursor: pointer;
+}
+
+section .row .product-detail #selected-items b{
+    font-weight: normal;
+    border-right: 1px solid #bbb;
+    padding: 0px 10px;
+    margin-right: 10px;
+}
+
+
+section .row .product-detail #selected-items span{
+
+}
+
+section .row .product-detail #selected-items ul{
+  
+}
+
+section .row .product-detail .product-detail-item{
+   width: 100%;
+   margin-top: 0px;
+   margin-bottom: 20px;
+   margin-right: 40px;
+}
+
+
+/* THUMB NAIL */
+
+section .row .product-detail .product-detail-item a.img{
+   display: block;
+   float: left;
+   margin-right: 40px;
+}
+
+section .row .product-detail .product-detail-item img{
+   display: block;
+   width: 120px;
+   height: 100px;
+}
+
+/* RIGHT SIDE - WITH NAME AND PURCHASE OPTIONS */
+section .row .product-detail .product-detail-item .item-selection{
+   display: block;
+   float: left;
+   width: 320px;
+}
+
+        section .row .product-detail .item-selection h1{
+            margin: 0px;
+            float: left;
+            width: 320px;
+            border-bottom: 1px solid #ccc;
+            font-size: 13px;
+            font-weight: normal;
+            min-height: 60px;
+        }
+        
+        section .row .product-detail .smallprice{
+            float: right;
+            font-size: 21px;
+        }
+
+        section .row .product-detail .product-detail-item .item-selection .item-selections{
+            border-bottom: 1px solid #ccc;
+            width: 320px;
+            float: left;
+            position: relative;
+            padding: 9px 0px 9px 0px;
+        }
+
+
+                /*singular item*/
+                
+                section .row .product-detail h1.title{
+                    font-size: 21px;
+                    font-weight: normal;
+                    text-align: center;
+                    margin: 60px 0px 40px 0px;
+                }
+                
+                section .row .product-detail p.description{
+                    font-size: 11px;
+                    line-height: 16px;
+                    text-align: center;
+                    min-height: 80px;
+                }
+                
+                section .row .product-detail span.price{
+                    font-size: 35px;
+                    display: block;
+                    text-align: center;
+                    line-height: 40px;
+                }
+                
+                section .row .product-detail span.code{
+                    font-size: 11px;
+                }
+                
+                
+                section .row .product-detail a.sizechart{
+                    font-size: 11px;
+                    display: block;
+                    text-align: center;
+                }
+                
+                section .row .product-detail a.add-item{
+                    display: block;
+                    float: right;
+                    height: 20px;
+                    width: 20px;
+                    line-height: 20px;
+                    border-radius: 10px;
+                    background: #ccc;
+                    text-align: center;
+                    position: relative;
+                }
+                
+                section .row .product-detail .select{
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                }
+                
+                section .row .product-detail .select-box{
+                    position: relative;
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 5px;
+                    float: left;
+                    background: #333;
+                }
+                
+                section .row .product-detail .select-box span{
+                   display: block;
+                   float: left;
+                   height: 20px;
+                   width: 20px;
+                   line-height: 20px;
+                   border-radius: 10px;
+                   background: #ccc;
+                   text-align: center;
+                    position: relative;
+                }
+                
+                
+                section .row .product-detail ul.options{
+                    margin: 0px;
+                    padding: 0px;
+                    list-style: none;
+                    width: 80px;
+                    background: #ccc;
+                    border-radius: 12px;
+                    position: absolute;
+                    left: 20px;
+                    top: 0px;
+                    z-index: 1;
+                    
+                }
+                
+                        ul.options.size, ul.options.colour{
+                            /*display: none;*/
+                        }
+                
+                section .row .product-detail ul.options li{
+                   float: left;
+                   background: #eee;
+                   border-radius: 12px;
+                   display: block;
+                   width: 20px;
+                   text-align: center;
+                    
+                }
+                
+                section .row .product-detail .add-to {
+                    padding: 20px 0px;
+                    border-top: 1px solid #ccc;
+                    border-bottom: 1px solid #ccc;
+                    text-align: center;
+                }
+                
+                section .row .product-detail input[type="button"]{
+                    appearance: none;
+                    border: 1px solid #bbb;
+                    border-radius: 0px;
+                    margin: 0px;
+                    padding: 10px 0px;
+                    width: 190px;
+                    background: #F5EFE5;
+                    font-size: 16px;
+                    font-family: serif;
+                    cursor: pointer;
+                }
+                
+                section .row .product-detail #related-items{
+                    margin-top: 20px;
+                }
+                
+                section .row .product-detail #related-items h2{
+                    font-size: 21px;
+                    font-weight: normal;
+                    margin: 20px 0px;
+                }
+                
+                section .row .product-detail #related-items a{
+                    display: block;
+                    float: left;
+                }
+                
+                section .row .product-detail #related-items a img{
+                    display: block;
+                    width: 140px;
+                    height: 120px;
+                }
+
+
+
+/* ROW OF THREE IMAGES */
+
+section .row .product-row{
+ 
+}
+
+section .row .product-row a{
+   float: left;
+   display: block;
+   width: 278px;
+   border: 1px solid #000;
+   margin: 20px;
+}
+
+section .row .product-row a img{
+   display: block;
+   margin: 20px;
+   width: 238px;
+   height: 360px;
+}
+
+
+
+/* FOOTER */
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    height: 60px;
+    width: 100%;
+    background: #ccc
+}
+
+footer .inner{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
