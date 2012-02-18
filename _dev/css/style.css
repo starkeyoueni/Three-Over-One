@@ -107,7 +107,7 @@ section{
 
 section .content{
     margin-top: 60px;
-    margin-bottom: 60px;
+    margin-bottom: 120px;
     width: 100%;
 }
 
@@ -126,6 +126,11 @@ section .row .product-detail{
    background: #fff;
    position: relative;
    overflow: hidden;
+	height: 0px;
+}
+
+section .row .product-detail.open{
+	
 }
 
 section .row .product-detail .product-detail-inner{
@@ -275,7 +280,14 @@ section .row .product-detail .product-detail-item .item-selection{
                 section .row .product-detail .select{
                     padding-top: 20px;
                     padding-bottom: 20px;
+					text-align: center;
                 }
+				
+                section .row .product-detail .select .select-box{
+                   display: inline-block;
+				   float: none !important;
+                    margin-right: 0px;
+                }				
                 
                 section .row .product-detail .select-box{
                     position: relative;
@@ -283,7 +295,6 @@ section .row .product-detail .product-detail-item .item-selection{
                     height: 20px;
                     margin-right: 5px;
                     float: left;
-                    background: #333;
                 }
                 
                 section .row .product-detail .select-box span{
@@ -301,20 +312,25 @@ section .row .product-detail .product-detail-item .item-selection{
                 
                 section .row .product-detail ul.options{
                     margin: 0px;
-                    padding: 0px;
+                    padding: 10px;
                     list-style: none;
-                    width: 80px;
                     background: #ccc;
                     border-radius: 12px;
                     position: absolute;
-                    left: 20px;
-                    top: 0px;
+                    left: -20px;
+					top: -10px;
                     z-index: 1;
+					display: none;
+					width: 100px;
                     
                 }
                 
-                        ul.options.size, ul.options.colour{
-                            /*display: none;*/
+                 .select-box.focus ul.options.colour{
+                            display: block !important;
+                        }
+						
+                   .select-box.focus ul.options.size{
+                            display: block !important;
                         }
                 
                 section .row .product-detail ul.options li{
@@ -324,8 +340,23 @@ section .row .product-detail .product-detail-item .item-selection{
                    display: block;
                    width: 20px;
                    text-align: center;
-                    
+				   cursor: pointer;
+                   position: relative;
+				   margin-right: 5px;
                 }
+				
+				section .row .product-detail ul.options li .measurements{
+					position: absolute;
+					display: none;
+					background:#F00;
+					width: 40px;
+					height: 10px;
+					top: -10px;
+				}
+				
+				section .row .product-detail ul.options li:hover .measurements{
+					display: block;
+				}
                 
                 section .row .product-detail .add-to {
                     padding: 20px 0px;

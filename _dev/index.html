@@ -8,6 +8,54 @@
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script src="js/functions.js"></script>
+    
+    <script>
+// PROTOTYPE
+    $(document).ready(function(){
+		
+		
+		$(".select-box span").bind("click", function(){
+													 
+			selectBox = $(this).parent();
+			selectBox.status = $(this);
+			selectBox.options = selectBox.find(".options");		
+			selectBox.options.item = selectBox.options.find("li");
+			
+			//HIDE SELECT MENU
+			selectBox.hideOptions = function(){
+				selectBox.removeClass("focus");
+			}
+			
+			selectBox.left = function(){
+				statustext = selectBox.status.text();
+				return ((selectBox.options.find("." + statustext).index() * selectBox.options.item.width()) + 15 ) * -1;
+			}
+			
+		
+			selectBox.addClass("focus");
+			
+		}).next(".options").bind("mouseleave", function(){
+			
+			selectBox.hideOptions();
+			
+		}).find("li").bind("click", function(){
+			
+			selectBox.status.text($(this).text());
+			
+			selectBox.options.stop().animate({"left" : selectBox.left()}, 200, function(){
+				
+				selectBox.options.fadeOut(200, function(){selectBox.hideOptions()});
+																						
+			});
+			
+		});
+							   
+							   
+	});    
+    </script>
+    
+    
 </head>
 
 
@@ -30,77 +78,164 @@
             
             
          <div class="row clearfloat">
-<div class="product-detail clearfloat">
+			
+            <div class="product-detail clearfloat">
                     
-                    <div class="inner clearfloat">
-                        
-                        <div class="product-detail-inner left cleafloat">
-                             <img src="#.jpg" style="width: 440px; height: 600px; background: #ccc; display: block;"/>   
-                        </div><!-- right -->
-                        
-                        <div class="product-detail-inner right clearfloat">
+                        <div class="inner clearfloat">
                             
-                        <span class="code">#909090</span>
+                            <div class="product-detail-inner left cleafloat">
+                                 <img src="#.jpg" style="width: 440px; height: 600px; background: #ccc; display: block;"/>   
+                            </div><!-- right -->
                             
-                        <h1 class="title">Joseph Workers Coat *</h1>
-                        
-                        <p class="description">
-                        Made from some special fabric<br />
-                        Made from some special
-                        <span class="price">$399</span>
-                        </p>
-                        
-                        <div class="select clearfloat">
-                    <div class="select-box">
-                        <span>S</span>
-                        <ul class="options size clearfloat">
-                            <li>S</li>
-                            <li>M</li>
-                            <li>L</li> 
-                            <li>XL</li>
-                        </ul>
-                    </div>
-                        
-                    <div class="select-box">
-                        <span>C</span>
-                        <ul class="options colour clearfloat">
-                            <li>R</li>
-                            <li>G</li> 
-                            <li>B</li>
-                        </ul>
-                    </div>
+                            <div class="product-detail-inner right clearfloat">
+                                
+                            <span class="code">#909090</span>
+                                
+                            <h1 class="title">Joseph Workers Coat *</h1>
+                            
+                            <p class="description">
+                            Made from some special fabric<br />
+                            Made from some special
+                            <span class="price">$399</span>
+                            </p>
+                            
+                            <div class="select clearfloat">
+                        <div class="select-box">
+                            <span>S</span>
+                            <ul class="options size clearfloat">
+                                <li class="S">S
+                                	<!-- <div class="measurements">Measurements</div> -->
+                                </li>
+                                <li class="M">M
+                                	<!-- <div class="measurements">Measurements</div> -->
+                                </li>
+                                <li class="L">L
+                                	<!-- <div class="measurements">Measurements</div> -->
+                                </li> 
+                                <li class="XL">XL
+                                	<!--<div class="measurements">Measurements</div> -->
+                                </li>
+                            </ul>
                         </div>
-                        
-                        <a href="#" class="sizechart">Size information</a>
-                        
-                        <div class="add-to">
-                        <input type="button" value="Add to cart" />
-                        </div>
-                        
-                        <div id="related-items">
-                            <h2>You might also like;</h2>
-                            <a href="#"><img src="#.jpg" /></a>
-                            <a href="#"><img src="#.jpg" /></a>
-                            <a href="#"><img src="#.jpg" /></a>
                             
-                        </div><!-- related items -->
+                        <div class="select-box">
+                            <span>C</span>
+                            <ul class="options colour clearfloat">
+                                <li class="R">R</li>
+                                <li class="G">G</li> 
+                                <li class="B">B</li>
+                            </ul>
+                        </div>
+                            </div>
+                            
+                            <a href="#" class="sizechart">Size information</a>
+                            
+                            <div class="add-to">
+                            <input type="button" value="Add to cart" />
+                            </div>
+                            
+                            <div id="related-items">
+                                <h2>You might also like;</h2>
+                                <a href="#"><img src="#.jpg" /></a>
+                                <a href="#"><img src="#.jpg" /></a>
+                                <a href="#"><img src="#.jpg" /></a>
+                                
+                            </div><!-- related items -->
+                            
+                            </div><!-- left -->
                         
-                        </div><!-- left -->
-                    
-                    </div><!-- inner -->
+                        </div><!-- inner -->
                     
                 </div><!-- product detail -->
                 
                 <div class="inner  product-row clearfloat">
-                    <a href="#"><img src="#.jpg"></a>
-                    <a href="#"><img src="#.jpg"></a>
-                    <a href="#"><img src="#.jpg"></a>
+                            <a href="#"><img src="#.jpg"></a>
+                            <a href="#"><img src="#.jpg"></a>
+                            <a href="#"><img src="#.jpg"></a>
                 </div><!-- product-row -->
+                
             </div><!-- row -->
             
             
             
- <!--- row separator -->           
+ <!--- row separator -->   
+ 
+ 
+ 
+          <div class="row clearfloat">
+			
+            <div class="product-detail clearfloat">
+                    
+                        <div class="inner clearfloat">
+                            
+                            <div class="product-detail-inner left cleafloat">
+                                 <img src="#.jpg" style="width: 440px; height: 600px; background: #ccc; display: block;"/>   
+                            </div><!-- right -->
+                            
+                            <div class="product-detail-inner right clearfloat">
+                                
+                            <span class="code">#909090</span>
+                                
+                            <h1 class="title">Joseph Workers Coat *</h1>
+                            
+                            <p class="description">
+                            Made from some special fabric<br />
+                            Made from some special
+                            <span class="price">$399</span>
+                            </p>
+                            
+                            <div class="select clearfloat">
+                        <div class="select-box">
+                            <span>S</span>
+                            <ul class="options size clearfloat">
+                                <li>S</li>
+                                <li>M</li>
+                                <li>L</li> 
+                                <li>XL</li>
+                            </ul>
+                        </div>
+                            
+                        <div class="select-box">
+                            <span>C</span>
+                            <ul class="options colour clearfloat">
+                                <li>R</li>
+                                <li>G</li> 
+                                <li>B</li>
+                            </ul>
+                        </div>
+                            </div>
+                            
+                            <a href="#" class="sizechart">Size information</a>
+                            
+                            <div class="add-to">
+                            <input type="button" value="Add to cart" />
+                            </div>
+                            
+                            <div id="related-items">
+                                <h2>You might also like;</h2>
+                                <a href="#"><img src="#.jpg" /></a>
+                                <a href="#"><img src="#.jpg" /></a>
+                                <a href="#"><img src="#.jpg" /></a>
+                                
+                            </div><!-- related items -->
+                            
+                            </div><!-- left -->
+                        
+                        </div><!-- inner -->
+                    
+                </div><!-- product detail -->
+                
+                <div class="inner  product-row clearfloat">
+                            <a href="#"><img src="#.jpg"></a>
+                            <a href="#"><img src="#.jpg"></a>
+                            <a href="#"><img src="#.jpg"></a>
+                </div><!-- product-row -->
+                
+            </div><!-- row -->
+            
+            
+            
+ <!--- row separator -->          
             
             
             <div class="row clearfloat">
@@ -270,16 +405,179 @@
                 </div><!-- product-row -->
             </div><!-- row -->
             
+            
+            
+ <!--- row separator -->          
+            
+            
             <div class="row clearfloat">
-                <div class="product-detail">
-             
+                <div class="product-detail clearfloat">
+                    
+                    <div class="inner clearfloat">
+                        
+                        <div class="product-detail-inner left cleafloat">
+                             <img src="#.jpg" style="width: 440px; height: 600px; background: #ccc; display: block;"/>   
+                        </div><!-- left -->
+                        
+                        <div class="product-detail-inner right clearfloat">
+                            
+                            
+                        <div id="product-detail-items">    
+                            <div class="product-detail-item clearfloat">
+                                <a href="#" class="img"><img src="#.jpg" /></a>
+                                
+                                <div class="item-selection clearfloat">
+                                    
+                                        <h1 class="clearfloat">
+                                            <span class="smallprice">$399</span>
+                                            Joseph Workers Coat *<br>
+                                            <span>Made from some special fabric</span>
+                                        </h1>
+                                        
+                                        <div class="item-selections clearfloat">
+                                            
+                                            <div class="select-box">
+                                                <span>S</span>
+                                                <ul class="options size clearfloat">
+                                                    <li>S</li>
+                                                    <li>M</li>
+                                                    <li>L</li> 
+                                                    <li>XL</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <div class="select-box">
+                                                <span>C</span>
+                                                <ul class="options colour clearfloat">
+                                                    <li>R</li>
+                                                    <li>G</li> 
+                                                    <li>B</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <a href="#" class="add-item">+</a>
+                                        
+                                        </div><!-- selections -->
+                                    
+                                </div><!-- selection (right of thumbnail) -->
+                            </div><!-- item -->
+                            
+                            
+                            
+                            
+                            
+                           <div class="product-detail-item clearfloat">
+                                <a href="#" class="img"><img src="#.jpg" /></a>
+                                
+                                <div class="item-selection clearfloat">
+                                    
+                                        <h1 class="clearfloat">
+                                            <span class="smallprice">$399</span>
+                                            Joseph Workers Coat *<br>
+                                            <span>Made from some special fabric</span>
+                                        </h1>
+                                        
+                                        <div class="item-selections clearfloat">
+                                            
+                                            <div class="select-box">
+                                                <span>S</span>
+                                                <ul class="options size clearfloat">
+                                                    <li>S</li>
+                                                    <li>M</li>
+                                                    <li>L</li> 
+                                                    <li>XL</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <div class="select-box">
+                                                <span>C</span>
+                                                <ul class="options colour clearfloat">
+                                                    <li>R</li>
+                                                    <li>G</li> 
+                                                    <li>B</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <a href="#" class="add-item">+</a>
+                                        
+                                        </div><!-- selections -->
+                                    
+                                </div><!-- selection (right of thumbnail) -->
+                            </div><!-- item -->
+                            
+                            
+                            
+                            
+                           <div class="product-detail-item clearfloat">
+                                <a href="#" class="img"><img src="#.jpg" /></a>
+                                
+                                <div class="item-selection clearfloat">
+                                    
+                                        <h1 class="clearfloat">
+                                            <span class="smallprice">$399</span>
+                                            Joseph Workers Coat *<br>
+                                            <span>Made from some special fabric</span>
+                                        </h1>
+                                        
+                                        <div class="item-selections clearfloat">
+                                            
+                                            <div class="select-box">
+                                                <span>S</span>
+                                                <ul class="options size clearfloat">
+                                                    <li>S</li>
+                                                    <li>M</li>
+                                                    <li>L</li> 
+                                                    <li>XL</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <div class="select-box">
+                                                <span>C</span>
+                                                <ul class="options colour clearfloat">
+                                                    <li>R</li>
+                                                    <li>G</li> 
+                                                    <li>B</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <a href="#" class="add-item">+</a>
+                                        
+                                        </div><!-- selections -->
+                                    
+                                </div><!-- selection (right of thumbnail) -->
+                            </div><!-- item -->
+                            
+                            
+                            
+                 
+                            
+                        </div>
+                            
+                        <div id="selected-items" class="clearfloat">
+                            <b>TOTAL: $3000</b>Add selected items to basket.
+                            <!--
+                            <ul>
+                                <li>..</li>
+                                <li>..</li>
+                                <li>..</li>
+                            </ul>
+                            -->
+                        </div><!-- selected items -->
+                        
+                        
+                        </div><!-- right -->
+                    
+                    </div><!-- inner -->
+                    
                 </div><!-- product detail -->
-                <div class="inner  product-row clearfloat">
+                <div class="inner product-row clearfloat">
                     <a href="#"><img src="#.jpg"></a>
                     <a href="#"><img src="#.jpg"></a>
                     <a href="#"><img src="#.jpg"></a>
                 </div><!-- product-row -->
-            </div><!-- row -->
+            </div><!-- row -->            
+            
+           
             
         </div>
         
