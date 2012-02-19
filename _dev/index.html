@@ -4,7 +4,8 @@
 <head>
     <title>THREE OVER ONE</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+    <script src="js/jquery.js"></script>
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -408,164 +409,215 @@
             
             
  <!--- row separator -->          
-            
+ 
+ <style>
+ 
+.cart hgroup {
+  text-align: center;
+  margin-top: 20px;
+  height: 100px;
+  float: left;
+  width: 100%;
+}
+
+.cart hgroup h1 {
+ font-size: 21px;
+ font-weight: normal;
+ margin: 0px;
+}
+ 
+ 
+ .cart .cart-order-items {
+    width: 100%;
+    text-align: center;
+ }
+
+
+.cart .cart-order-items .cart-item {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #000;
+    width: 208px;
+    height: 318px;
+    margin: 0px 20px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.cart .cart-order-items .cart-item ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    vertical-align: top;
+}
+
+    .cart-item ul .border1 {
+        border-top: 1px solid #ccc;
+        background: #F5EFE5;
+        padding: 0px 10px;
+    }
+    
+    .cart-item ul .noshade {
+        background: #fff;
+    }
+
+    .cart-item ul .product-image {
+        position: relative;
+    }
+    
+    .cart-item ul .product-image a{
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        display: block;
+        color: #fff;
+    }
+    
+    .cart-item ul .product-image a span{
+        width: 20px;
+        top: 5px;
+        position: relative;
+        z-index: 1;
+        color: #fff;
+        border: 0px;
+        text-align: center;
+    }
+    
+    .cart-item ul .product-image a:before{
+        display: block;
+        content: " ";
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 0px;
+        width: 0px;
+        border-top: 40px solid #999;
+        border-bottom: 40px solid transparent;
+        border-right: 0px solid transparent;
+        border-left: 40px solid transparent;
+    }
+
+    .cart-item ul .product-image img {
+        margin: 9px;
+        width: 190px;
+        height: 160px;
+    }
+
+    .cart-item ul .product-title {
+        font-size: 13px;
+        line-height: 15px;
+        min-height: 30px;
+    }
+    
+    .cart-item ul span {
+        width: 69px;
+        display: block;
+        float: left;
+        position: relative;
+        border-right: 1px solid #ccc;
+    }
+    
+    .cart-item ul span + span {
+        width: 108px;
+        border: 0px;
+        padding-left: 10px;
+    }
+    
+    .cart-item ul .product-total span {
+        width: 123px;
+        border: 0px;
+        display: block;
+        float: left;
+        position: relative;
+        line-height: 40px;
+    }
+    
+    .cart-item ul .product-total span + span {
+        width: 54px;
+        border: 0px;
+        padding-left: 10px;
+        font-size: 21px;
+        text-align: right;
+    }
+
+.cart #cart-totals {
+    margin-top: 70px;
+    text-align: center;
+    width: 440px;
+    margin: 70px auto 0px;
+    border-bottom: 1px solid #000;
+}
+.cart #cart-totals span {
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.cart #cart-totals .spacer {
+    width: 40px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.cart #cart-totals .spacer + span {
+    text-align: left;
+}
+
+.cart .add-to{
+    border: 0px !important;
+}
+    
+    
+ </style>
             
             <div class="row clearfloat">
-                <div class="product-detail clearfloat">
+                <div class="product-detail cart clearfloat">
                     
                     <div class="inner clearfloat">
+                    
+                        <hgroup><h1>Shopping Cart</h1>-</hgroup>
                         
-                        <div class="product-detail-inner left cleafloat">
-                             <img src="#.jpg" style="width: 440px; height: 600px; background: #ccc; display: block;"/>   
-                        </div><!-- left -->
-                        
-                        <div class="product-detail-inner right clearfloat">
-                            
-                            
-                        <div id="product-detail-items">    
-                            <div class="product-detail-item clearfloat">
-                                <a href="#" class="img"><img src="#.jpg" /></a>
+                        <div class="cart-order-items clearfloat">
+<!-- item row -->                          
+                            <div class="cart-item">
+                                <ul>
+                                    <li class="product-image">
+                                        <a href="#"><span>X</span></a>
+                                        <img src="#.jpg">
+                                    </li>
+                                    <li class="product-title noshade border1">Joesph Works Coat*<br> Coat*</li>
+                                    <li class="product-size border1 clearfloat">
+                                        <span>Size / Colour:</span>
+                                        <span>L / Red</span>
+                                    </li>
+                                    <li class="product-qty border1 clearfloat">
+                                        <span>Qty:</span>
+                                        <span>2</span>
+                                    </li>
+                                    <li class="product-price border1 clearfloat">
+                                        <span>Price:</span>
+                                        <span>$300</span>
+                                    </li>
+                                    <li class="product-total border1 clearfloat">
+                                        <span>Total . . . . . . . . . . . . . . .</span>
+                                        <span>$300</span>
+                                    </li>
+                                </ul>
                                 
-                                <div class="item-selection clearfloat">
-                                    
-                                        <h1 class="clearfloat">
-                                            <span class="smallprice">$399</span>
-                                            Joseph Workers Coat *<br>
-                                            <span>Made from some special fabric</span>
-                                        </h1>
-                                        
-                                        <div class="item-selections clearfloat">
-                                            
-                                            <div class="select-box">
-                                                <span>S</span>
-                                                <ul class="options size clearfloat">
-                                                    <li>S</li>
-                                                    <li>M</li>
-                                                    <li>L</li> 
-                                                    <li>XL</li>
-                                                </ul>
-                                            </div>
-                                            
-                                            <div class="select-box">
-                                                <span>C</span>
-                                                <ul class="options colour clearfloat">
-                                                    <li>R</li>
-                                                    <li>G</li> 
-                                                    <li>B</li>
-                                                </ul>
-                                            </div>
-                                            
-                                            <a href="#" class="add-item">+</a>
-                                        
-                                        </div><!-- selections -->
-                                    
-                                </div><!-- selection (right of thumbnail) -->
-                            </div><!-- item -->
+                            </div><!-- cart item -->
                             
-                            
-                            
-                            
-                            
-                           <div class="product-detail-item clearfloat">
-                                <a href="#" class="img"><img src="#.jpg" /></a>
-                                
-                                <div class="item-selection clearfloat">
-                                    
-                                        <h1 class="clearfloat">
-                                            <span class="smallprice">$399</span>
-                                            Joseph Workers Coat *<br>
-                                            <span>Made from some special fabric</span>
-                                        </h1>
-                                        
-                                        <div class="item-selections clearfloat">
-                                            
-                                            <div class="select-box">
-                                                <span>S</span>
-                                                <ul class="options size clearfloat">
-                                                    <li>S</li>
-                                                    <li>M</li>
-                                                    <li>L</li> 
-                                                    <li>XL</li>
-                                                </ul>
-                                            </div>
-                                            
-                                            <div class="select-box">
-                                                <span>C</span>
-                                                <ul class="options colour clearfloat">
-                                                    <li>R</li>
-                                                    <li>G</li> 
-                                                    <li>B</li>
-                                                </ul>
-                                            </div>
-                                            
-                                            <a href="#" class="add-item">+</a>
-                                        
-                                        </div><!-- selections -->
-                                    
-                                </div><!-- selection (right of thumbnail) -->
-                            </div><!-- item -->
-                            
-                            
-                            
-                            
-                           <div class="product-detail-item clearfloat">
-                                <a href="#" class="img"><img src="#.jpg" /></a>
-                                
-                                <div class="item-selection clearfloat">
-                                    
-                                        <h1 class="clearfloat">
-                                            <span class="smallprice">$399</span>
-                                            Joseph Workers Coat *<br>
-                                            <span>Made from some special fabric</span>
-                                        </h1>
-                                        
-                                        <div class="item-selections clearfloat">
-                                            
-                                            <div class="select-box">
-                                                <span>S</span>
-                                                <ul class="options size clearfloat">
-                                                    <li>S</li>
-                                                    <li>M</li>
-                                                    <li>L</li> 
-                                                    <li>XL</li>
-                                                </ul>
-                                            </div>
-                                            
-                                            <div class="select-box">
-                                                <span>C</span>
-                                                <ul class="options colour clearfloat">
-                                                    <li>R</li>
-                                                    <li>G</li> 
-                                                    <li>B</li>
-                                                </ul>
-                                            </div>
-                                            
-                                            <a href="#" class="add-item">+</a>
-                                        
-                                        </div><!-- selections -->
-                                    
-                                </div><!-- selection (right of thumbnail) -->
-                            </div><!-- item -->
-                            
-                            
-                            
-                 
-                            
-                        </div>
-                            
-                        <div id="selected-items" class="clearfloat">
-                            <b>TOTAL: $3000</b>Add selected items to basket.
-                            <!--
-                            <ul>
-                                <li>..</li>
-                                <li>..</li>
-                                <li>..</li>
-                            </ul>
-                            -->
-                        </div><!-- selected items -->
+                        </div><!-- order items -->
                         
-                        
-                        </div><!-- right -->
+                    <div id="cart-totals">
+                        <span>Number of items . . . . . . . . . . 4</span><span class="spacer">*</span><span>Subtotal . . . . . . . . . .  $1089</span>
+                    </div>
+                    
+                    
+                    <div class="add-to">
+                    <input type="button" value="Continue to checkout" />
+                    </div>
                     
                     </div><!-- inner -->
                     
