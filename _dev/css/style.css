@@ -313,42 +313,52 @@ section .row .product-detail .product-detail-item .item-selection{
                 }
                 
                 
-                section .row .product-detail ul.options{
+                section .row .product-detail .options{
                     margin: 0px;
                     padding: 10px;
                     list-style: none;
-                    background: #ccc;
-                    border-radius: 12px;
                     position: absolute;
                     left: -20px;
-                    top: -10px;
+                    top: -14px;
                     z-index: 1;
                     display: none;
-                    width: 100px;
-                    
+                    width: 92px;
+                    font-size: 12px;
                 }
                 
-                 .select-box.focus ul.options.colour{
+                section .row .product-detail .options ul{
+                    margin: 0px;
+                    padding: 2px 0px 2px 2px;
+                    list-style: none;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    border-radius: 12px;
+                    position: relative;
+                    left: 0px;
+                    top: 0px;
+                }
+                
+                 .select-box.focus .options.colour{
                             display: block !important;
                         }
 						
-                   .select-box.focus ul.options.size{
+                   .select-box.focus .options.size{
                             display: block !important;
                         }
                 
-                section .row .product-detail ul.options li{
+                section .row .product-detail .options li{
                    float: left;
                    background: #eee;
                    border-radius: 12px;
                    display: block;
                    width: 20px;
                    text-align: center;
-				   cursor: pointer;
+                    cursor: pointer;
                    position: relative;
-				   margin-right: 5px;
+                    margin-right: 2px;
                 }
 				
-				section .row .product-detail ul.options li .measurements{
+				section .row .product-detail .options li .measurements{
 					position: absolute;
 					display: none;
 					background:#F00;
@@ -357,7 +367,7 @@ section .row .product-detail .product-detail-item .item-selection{
 					top: -10px;
 				}
 				
-				section .row .product-detail ul.options li:hover .measurements{
+				section .row .product-detail .options li:hover .measurements{
 					display: block;
 				}
                 
@@ -394,6 +404,11 @@ section .row .product-detail .product-detail-item .item-selection{
                 section .row .product-detail #related-items a{
                     display: block;
                     float: left;
+                    margin-left: 30px;
+                }
+                
+                section .row .product-detail #related-items a.first{
+                    margin-left: 0px;
                 }
                 
                 section .row .product-detail #related-items a img{

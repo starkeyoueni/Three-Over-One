@@ -27,6 +27,8 @@ function scrollToPlace(e){
 	//OPEN CONTAINER
 	productDetail.Open = productDetail.siblings().filter(".open");
 	productDetail.Open.container = productDetail.Open.find(".product-detail");
+	productDetail.Open.container.inner = productDetail.Open.container.find(".inner");
+	productDetail.Open.height = productDetail.Open.container.inner.height();
 	productDetail.Open.position = productDetail.Open.index();
 	
 	//SCROLL TO VALUE
@@ -36,8 +38,9 @@ function scrollToPlace(e){
 		//IF NO OPEN OR IF OPEN AREA IS BELOW TO-BO OPENED AREA
 			return productDetail.offset().top - $("header").height() - 20;
 		}else{
-		//IF OPEM AREA IS BEFORE TO-BE OPENED AREA - TAKE AWAY THE HEIGHT OF THE INNER
-			return productDetail.offset().top - productDetail.height - $("header").height() - 20;
+		//IF OPEN AREA IS BEFORE TO-BE OPENED AREA - TAKE AWAY THE HEIGHT OF THE INNER
+		//REVISION: TAKE THE HEIGHT OF THE OPEN CONTAINER
+			return productDetail.offset().top - productDetail.Open.height - $("header").height() - 20;
 		}
 		
 	}
