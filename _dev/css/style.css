@@ -151,34 +151,51 @@ section .row .product-detail .product-detail-inner.right {
 }
 
 section .row .product-detail #product-detail-items {
-    min-height: 480px;
+    min-height: 460px;
 }
 
-section .row .product-detail #selected-items {
-    border: 1px solid #bbb;
-    margin: 0px 0px 0px 80px;
-    padding: 10px 0px;
-    width: 320px;
-    background: #F5EFE5;
-    font-size: 16px;
-    font-family: serif;
-    cursor: pointer;
+/* selected items */
+
+section .row .product-detail .selected-items {
+    padding: 20px 0px;
+    /*border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;*/
+    text-align: center;
 }
 
-section .row .product-detail #selected-items b {
+section .row .product-detail .selected-items span.selected-items-total {
+    display: block;
+    text-align: left;
+    width: 120px;
+    float: left;
+    /*border-right: 1px solid #ccc;*/
+      
+
+}
+
+section .row .product-detail .selected-items span.selected-items-total span {
+    display: block;
+    font-size: 13px;
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    line-height: 40px;
+}
+
+section .row .product-detail .selected-items span.selected-items-total span + span {
+height: auto;
+border: 0px;
+line-height: 20px;
+}
+
+section .row .product-detail .selected-items span.selected-items-total span b {
     font-weight: normal;
-    border-right: 1px solid #bbb;
-    padding: 0px 10px;
-    margin-right: 10px;
+    font-size: 16px;
 }
 
-
-section .row .product-detail #selected-items span{
-
-}
-
-section .row .product-detail #selected-items ul{
-  
+section .row .product-detail .selected-items input[type="button"]{
+    display: block;
+    margin-left: 160px;
 }
 
 section .row .product-detail .product-detail-item{
