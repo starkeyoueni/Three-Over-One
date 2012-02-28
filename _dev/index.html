@@ -15,10 +15,15 @@
 // PROTOTYPE
     $(document).ready(function(){
 		
+    $(".imageThumbs a").bind("click", function(e){e.preventDefault();
+      
+    });
 		
 		$(".select-box span").bind("click", function(){
 													 
 			selectBox = $(this).parent();
+      selectBox.for = selectBox.attr("for");
+      selectBox.form = selectBox.parent().parent();
 			selectBox.status = $(this);
 			selectBox.options = selectBox.find(".options");		
 			selectBox.options.item = selectBox.options.find("li");
@@ -41,14 +46,16 @@
 			selectBox.hideOptions();
 			
 		}).find("li").bind("click", function(){
+		
+    value = $.trim($(this).text());
+		selectBox.status.text(value);
+    selectBox.form.find("input[name='" + selectBox.for +"']").val(value);
 			
-			selectBox.status.text($(this).text());
-			
-			selectBox.options.stop().animate({"left" : selectBox.left()}, 200, function(){
+		selectBox.options.stop().animate({"left" : selectBox.left()}, 200, function(){
 				
 				selectBox.options.fadeOut(200, function(){selectBox.hideOptions()});
 																						
-			});
+		});
 			
 		});
 							   
@@ -84,12 +91,27 @@
                     
                         <div class="inner clearfloat">
                             
-                            <div class="product-detail-inner left cleafloat">
-                                 <img src="#.jpg" style="width: 440px; height: 600px; background: #ccc; display: block;"/>   
-                            </div><!-- right -->
+                            <div class="product-detail-inner left cleafloat type1">
+                                <div class="imageInner clearfloat">
+                                    <div class="imageContainer">
+                                        <img src="#.jpg" />
+                                    </div>
+                                    <div class="imageNav">
+                                        -
+                                        
+                                        <div class="imageThumbs clearfloat">
+                                            <div class="imageThumbsContainer clearfloat">
+                                                <a href=#"><img src="#"></a>
+                                                <a href=#"><img src="#"></a>
+                                                <a href=#"><img src="#"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- left -->
                             
                             <div class="product-detail-inner right clearfloat">
-                                
+                <form>
                             <span class="code">#909090</span>
                                 
                             <h1 class="title">Joseph Workers Coat *</h1>
@@ -101,7 +123,8 @@
                             </p>
                             
                             <div class="select clearfloat">
-                        <div class="select-box">
+                <input name="size" type="hidden">
+                        <div class="select-box" for="size">
                             <span>S</span>
                             
                             <div class="options size clearfloat">
@@ -122,8 +145,9 @@
                             </div><!-- options -->
                             
                         </div><!-- select-box -->
-                            
-                        <div class="select-box">
+                 
+                <input name="colour" type="hidden">           
+                        <div class="select-box" for="colour">
                             <span>C</span>
                             
                             <div class="options colour clearfloat">
@@ -143,7 +167,7 @@
                             <div class="add-to">
                             <input type="button" value="Add to cart" />
                             </div>
-                            
+                </form>            
                             <div id="related-items">
                                 <h2>You might also like;</h2>
                                 <a href="#" class="first"><img src="#.jpg" /></a>

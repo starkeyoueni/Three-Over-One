@@ -2,7 +2,7 @@ $(function(){
 		
 		
 	//BINDINGS
-	$(".product-row").bind("click", scrollToPlace);
+	$(".product-row a").bind("click", scrollToPlace);
 		   
 	
 });//
@@ -16,7 +16,10 @@ function scrollToPlace(e){
 
 	e.preventDefault();
 	
-	var productDetail = $(this).parent();
+	$(".product-row a").removeClass("showing");
+	$(this).addClass("showing");
+	
+	var productDetail = $(this).parent().parent();
 	
 	//CURRENT CONTAINER
 	productDetail.container = productDetail.find(".product-detail");

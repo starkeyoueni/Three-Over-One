@@ -146,6 +146,87 @@ section .row .product-detail .product-detail-inner.left {
    float: left;
 }
 
+section .row .product-detail .product-detail-inner.left .imageInner {
+  width: 400px;
+  background: #F5EFE5;
+  margin-left: 40px;
+  height: 600px;
+  position: relative;
+}
+
+section .row .product-detail .product-detail-inner.left.type1 {
+  
+}
+
+section .row .product-detail .product-detail-inner.left.type1 .imageContainer {
+  width: 360px;
+  height: 520px;
+  background: #aaa;
+  margin: 20px;
+  display: block;
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+
+section .row .product-detail .product-detail-inner.left.type1 .imageContainer img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+section .row .product-detail .product-detail-inner.left.type1 .imageNav {
+    list-style: none;
+    padding: 0px;
+    float: left;
+    width: 40px;
+    height: 23px;
+    margin: 0px 20px;
+    border: 1px solid #ccc;
+    height: 18px;
+    position: relative;
+}
+
+section .row .product-detail .product-detail-inner.left.type1 .imageNav:hover .imageThumbs {
+    display: block;
+}
+
+section .row .product-detail .product-detail-inner.left.type1 .imageThumbs {
+    width: 400px;
+    height: 580px;
+    background: none;
+    bottom: -1px;
+    left: -20px;
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    display: none;
+}
+
+section .row .product-detail .product-detail-inner.left.type1 .imageThumbsContainer {
+    width: 360px;
+    height: 520px;
+    background: #999;
+    margin: 20px;
+    display: block;
+    position: absolute;
+    overflow: hidden;
+}
+
+section .row .product-detail .product-detail-inner.left.type1 .imageThumbs a {
+    display: block;
+    float: left;
+    width: 180px;
+    height: 260px;
+}
+
+section .row .product-detail .product-detail-inner.left.type1 .imageThumbs a img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
 section .row .product-detail .product-detail-inner.right {
    float: right;
 }
@@ -448,6 +529,22 @@ section .row .product-row a{
    width: 278px;
    border: 1px solid #000;
    margin: 20px;
+   position: relative;
+}
+
+section .row .product-row a.showing:after{
+   content: " ";
+   display: block;
+   position: absolute;
+   top: 0px;
+   right: 0px;
+   width: 0px;
+   height: 0px;
+   border-left: 40px solid transparent;
+   border-right: 40px solid #000;
+   border-bottom: 40px solid transparent;
+   border-top: 0px solid transparent;
+   
 }
 
 section .row .product-row a img{
