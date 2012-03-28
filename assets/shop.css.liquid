@@ -4,9 +4,9 @@ input[type=text] {height:22px;}
 body {color:{{ settings.text_color }}; font-size:13px; line-height:24px; font-family:{{ settings.regular_font }}; }
 
 {% if settings.use_custom_bg_image %}
-body {background:{{ settings.shop_bg_color }} url('{{ 'custom_bg.png' | asset_url }}') repeat fixed; }
+  body {background:{{ settings.shop_bg_color }} url('{{ 'custom_bg.png' | asset_url }}') repeat fixed; }
 {% else %}
-body {background:{{ settings.shop_bg_color }} none repeat fixed; background-image:none; }
+  body {background:{{ settings.shop_bg_color }} none repeat fixed; background-image:none; }
 {% endif %}
 
 h1,h2,h3,h4,h5,h6 {font-weight:{{ settings.header_weight }}; font-family:{{ settings.websafe_font }}; color:{{ settings.header_color }}; margin:0 0 13px 0; text-transform:{{ settings.header_font_style }}; }
@@ -37,10 +37,22 @@ table tr td:last-child {padding-right:0px;}
 input, a {outline:none !important;}
 input:hover, a:hover {outline:none !important;}
 input:active, a:active {outline:none !important;}
-input[type=submit], button, a.btn {border:none; outline:none; padding:10px 25px; color:#fff; background:{{ settings.btn_color }}; font-size:12px; font-style:italic; text-transform:lowercase; font-family:"Georgia", serif;}
+
+input[type=submit], button, a.btn {
+  border: 1px #000 solid;
+  outline: none;
+  padding: 10px 25px;
+  color: #000;
+  background: {{ settings.btn_color }};
+  font-size: 12px;
+  font-style: italic;
+  text-transform: lowercase;
+  font-family:"Georgia", serif;
+}
+  
 input[type=submit]:hover, button:hover, a.btn:hover {background:{{ settings.btn_hover_color }}}
 
-header {padding:20px 0;}
+header {padding: 20px 0; background:{{ settings.header_bg_color }};}
 header h1 {margin:0;}
 header h1 a:hover {color:{{ settings.header_color }};}
 header div.logo {float:left;}
