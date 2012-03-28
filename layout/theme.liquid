@@ -80,34 +80,9 @@
 
 <body>
   <div class="wrapper">
-    <header class="clearfix">
-      <span class="logo">
-        {% if settings.use_logo %}
-          <a href="/" class="shop_logo"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" class="png_bg" /></a>
-        {% else %}
-          <a href="/">{{ shop.name }}</a>
-        {% endif %}
-      </span>
-      
-      <!-- /.logo -->
-      <div class="cart-summary">
-        <span class="cart"><a href="/cart"><span class="cart-total-items"><span class="count">{{ cart.item_count }}</span> {{ cart.item_count | pluralize: 'Item', 'Items' }} (<span class="total_price">{{ cart.total_price | money }}</span>)</span></a></span>
-        <div id="cart-updated"><a href="/cart">Added to cart</a></div>
-      </div> <!-- /.cart-summary -->
-      
-      <p class="contact-info">
-        {% if shop.customer_accounts_enabled %}
-          <span class="customer">
-            {% if customer %}
-              Welcome <a href="/account">{{ customer.first_name }}</a> | {{ 'Logout' | customer_logout_link }}
-            {% else %}
-              {{ 'Customer Login' | customer_login_link }}
-            {% endif %}
-          </span>
-        {% endif %}
-      </p>
-    </header>
-
+    
+    {% include 'header' %}
+    
     <nav class="main">
       <ul class="clearfix">
         {% for link in linklists[settings.main_linklist].links %}
