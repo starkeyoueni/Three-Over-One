@@ -34,12 +34,12 @@ h1,h2,h3,h4,h5,h6 {
 
 {% if settings.typeface_method == "google_webfonts" %}
   h1,h2,h3,h4,h5,h6 {
-    font-family:{{ settings.google_webfont_font | replace: '+', ' ' }};
+    font-family: {{ settings.google_webfont_font | replace: '+', ' ' }};
   }
 {% endif %}
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  color:{{ settings.header_color }};
+  color: {{ settings.header_color }};
 }
 
 a {
@@ -883,17 +883,24 @@ footer nav li a.current {
   border:1px solid #000;
 }
 
+.cloud-zoom-loading {
+  color:white;
+  background:#222;
+  padding:3px;
+  border:1px solid #000;
+}
+
 
 /* css borders - in one spot to change easily */
 {% if settings.current_preset == "light" %}
   table tr, nav.main, .more-info, #product .collection-nav, #blog .article, #search .results .item {
-	border-bottom:1px dotted #d8d8d8;
+	border-bottom:1px solid #000000;
   }
   nav.main {
-	border-top:1px dotted #d8d8d8;
+	border-top:1px solid #000000;
   }
   #product .images .image, .slider-container, #content-table .product, #product .variants .select, #cart .product_image img, #search .results .item .thumbnail {
-	border:1px dotted #d8d8d8;
+	border:1px solid #000000;
   }
 {% else %}
   .pagination span.current {
@@ -951,13 +958,13 @@ footer nav li a.current {
   }
 
   table tr, nav.main, .more-info, #product .collection-nav, #blog .article, #search .results .item {
-	border-bottom:1px dotted #262626;
+	border-bottom:1px solid #000000;
   }
   nav.main {
-	border-top:1px dotted #262626;
+	border-top:1px solid #000000;
   }
   #product .images .image, .slider-container, #content-table .product, #product .variants .select, #cart .product_image img, #search .results .item .thumbnail {
-	border:1px dotted #262626;
+	border:1px solid #000000;
   }
 {% endif %}
 

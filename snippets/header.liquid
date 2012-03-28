@@ -1,0 +1,23 @@
+<header class="clearfix">
+  <span class="logo">
+    <a href="/">{{ shop.name | upcase }}</a>
+  </span>
+
+  <div class="cart-summary">
+    <span class="cart">
+      <a href="/cart"><span class="cart-total-items"><span class="count">{{ cart.item_count }}</span> {{ cart.item_count | pluralize: 'Item', 'Items' }} (<span class="total_price">{{ cart.total_price | money }}</span>)</span></a></span>
+    <div id="cart-updated"><a href="/cart">Added to cart</a></div>
+  </div> <!-- /.cart-summary -->
+      
+  <p class="contact-info">
+    {% if shop.customer_accounts_enabled %}
+    <span class="customer">
+      {% if customer %}
+      Welcome <a href="/account">{{ customer.first_name }}</a> | {{ 'Logout' | customer_logout_link }}
+      {% else %}
+      {{ 'Customer Login' | customer_login_link }}
+      {% endif %}
+    </span>
+    {% endif %}
+  </p>
+</header>

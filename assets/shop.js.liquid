@@ -275,7 +275,7 @@ Shopify.money_format = '${{amount}}';
 Shopify.onProduct = function(product) {
   jQuery("#recently-viewed").css('display', 'block');
   jQuery("#recently-viewed .products").append('<div class="product"><div class="image"><a href="' + product.url + '"><img src="' + Shopify.resizeImage(product.featured_image, 'large') + '" alt="' + product.title + '" /></a></div><div class="details clearfix"><a href="' + product.url + '"><span class="title">' + product.title + '</span></a></div></div>');
-  jQuery("#recently-viewed .products .product:nth-child(4)").addClass("last");
+  jQuery("#recently-viewed .products .product:nth-child(3)").addClass("last");
   jQuery("#content-slide .product .details, #content-table .product .details").css({opacity:0.0});
 };
 
