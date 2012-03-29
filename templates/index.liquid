@@ -28,24 +28,4 @@
     </div>
   {% endif %}
 
-  {% if settings.frontpage_collection != "" and collections[settings.frontpage_collection].all_products_count > 0 %}
-    <div class="more-info">
-      <span class="upper">Featured</span>
-      <span class="lower">
-        {% if collections[settings.frontpage_collection].all_products_count < 8 %}
-          {{ collections[settings.frontpage_collection].all_products_count }}
-        {% else %}
-          8
-        {% endif %}
-        {{ collections[settings.frontpage_collection].all_products_count | pluralize: 'Item', 'Items' }}
-      </span>
-    </div>
-
-    <div id="content-table" class="clearfix">
-      {% for product in collections[settings.frontpage_collection].products limit:8 %}
-        {% include 'product-loop' with settings.frontpage_collection %}
-      {% endfor %}
-    </div>
-  {% endif %}
-
 </div> <!-- /#index -->

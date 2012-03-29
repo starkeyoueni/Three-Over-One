@@ -82,46 +82,12 @@
   <div class="wrapper">
     
     {% include 'header' %}
-    
-    <nav class="main">
-      <ul class="clearfix">
-        {% for link in linklists[settings.main_linklist].links %}
-          {% if linklists[link.handle] == empty %}
-            <li><a href="{{ link.url }}"{% if link.active %} class="current"{% endif %}><span>{{ link.title }}</span></a></li>
-          {% else %}
-            <li class="dropdown"><a href="{{ link.url }}"{% if link.active %} class="current"{% endif %}><span>{{ link.title }}</span></a>
-            <ul class="dropdown">
-              {% for link in linklists[link.handle].links %}
-                <li><a href="{{ link.url }}"{% if link.active %} class="current"{% endif %}>{{ link.title }}</a></li>
-              {% endfor %}
-            </ul>
-          </li>
-          {% endif %}
-        {% endfor %}
-        
-        <li class="fr cy">
-          <form id="search_form" class="searchform" name="search" action="/search">
-            {% if template == "search" and search.performed and search.terms != "" %}
-              <input type="text" name="q" class="replace" value="{{ search.terms }}" />
-            {% else %}
-              <input type="text" class="replace" name="q" value="Search..." />
-            {% endif %}
-          </form>
-        </li>
-      </ul>
-    </nav>
 
     <section id="body" class="clearfix">
       {{ content_for_layout }}
     </section> <!-- /#body -->
 
     {% include 'footer' %}
-    
-    <div class="additional-info">
-      Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name }} 
-      {% if settings.display_shop_currency %}| All prices in {{ shop.currency }}{% endif %} 
-      | {{ powered_by_link }}
-    </div>
     
   </div> <!-- /.wrapper -->
 </body>

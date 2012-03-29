@@ -1,6 +1,6 @@
 {% capture collection_handle %}{{ product-loop | handleize }}{% endcapture %}
 {% if collection_handle == "" %}
-<div id="product-loop-{{ product.handle }}" class="product{% cycle 'featured': '', '', '', ' last' %}">
+<div id="product-loop-{{ product.handle }}" class="product{% cycle 'featured': '', '', ' last' %}">
   <div class="image">
     <a href="{{ product.url }}"><img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape  }}" /></a>
   </div>
@@ -11,7 +11,7 @@
   </div>
 </div>
 {% else %}
-<div id="product-loop-{{ product.handle }}" class="product{% cycle 'featured': '', '', '', ' last' %}">
+<div id="product-loop-{{ product.handle }}" class="product{% cycle 'featured': '', '', ' last' %}">
   <div class="image">
     <a href="/collections/{{ product-loop }}{{ product.url }}"><img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape  }}" /></a>
   </div>
@@ -34,4 +34,4 @@
   {% endif %}
 </div>
 {% endif %}
-{% cycle 'clear-table': '', '', '', '<div style="clear:both;"></div>' %}
+{% cycle 'clear-table': '', '', '<div style="clear:both;"></div>' %}
