@@ -12,20 +12,24 @@
             SHOP
         {% endcase %}
     </span>
-    <span class="three column menu"><a href="#"><div class="nav-items">ABOUT</div></a> &middot; <a href="/collections/all"><div class="nav-items shop-nav">SHOP</div></a> &middot; <a href="#"><div class="nav-items">BLOG</div></a></span>
-	<div id="shop-nav-down">
-		<div id="shop-nav-main">
-			<ul>
-			{% for product_type in collection.all_types %}
-			<li class="{{ product_type | handleize }}">
-			{{ product_type | link_to_type }}
-			</li>
-			{% endfor %}
-			</ul>¨
-		</div>
-	</div>
+    <span class="three column menu">
+		<a href="#"><div class="nav-items">ABOUT</div></a>
+			&middot;
+		<a href="/collections/all"><div class="nav-items shop-nav">SHOP</div></a>
+			&middot;
+		<a href="#"><div class="nav-items">BLOG</div></a>
+	</span>
   </nav>
-</div>  
+</div>
+<div id="shop-nav-down">
+	<div id="shop-nav-main">
+		<ul>
+		{% for link in linklists.mens-categories.links %}
+		   <li><a {% if link.active %}class="active"{% endif %}>{{ link.title | link_to: link.url }}</li>
+		{% endfor %}
+		</ul>
+	</div>
+</div>
 </header>
 
 <!--

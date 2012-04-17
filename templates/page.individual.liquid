@@ -1,5 +1,3 @@
-<!--start-->
-
 <div id="product" class="{{ product.handle }}{% if product.images.size == 1 %} one_image{% endif %} clearfix">
   
   <div class="product_body clearfix">
@@ -39,7 +37,7 @@
         </div>
       {% endif %}
       
-      <h3 class="title">{{ product.title }}</h2>
+      <h2 class="title">{{ product.title }}</h2>
       
       {% if settings.product_description_position == "top" %}
         <div class="description">
@@ -92,13 +90,8 @@
           {{ product.description }}
         </div>
         <div class="details"><span class="type">type: {{ product.type | link_to_type }}</span> <span class="vendor">by: {{ product.vendor | link_to_vendor }}</span></div>
-      {% endif %}
+      {% endif %}      
     </div>
-	    <div id="related-items">
-	      {% include 'related-products' %}
-	    </div><!-- related items -->
-
-		<div style="clear:both;"></div>
   </div> <!-- /.product_body -->
 
   {% if collection and collection.products.size > 1 %}
@@ -120,13 +113,22 @@
       <div class="slider">
         <span class="ui-slider-handle">&nbsp;</span>
       </div>
-
-	
     </div>
   {% endif %}
 
+  <div id="recently-viewed" style="display:none;">
+    <div class="more-info">
+      <span class="upper">Recently</span>
+      <span class="lower">Viewed Items</span>
+    </div>
+    
+    <div id="content-table" class="products clearfix">
+
+    </div>
+  </div> <!-- /#recently-viewed -->
+
 </div> <!-- /#product -->
-<!--end-->
+
 
 <script type="text/javascript">
 
@@ -205,4 +207,3 @@ jQuery(function() {
 });
 // ]]>
 </script>
-

@@ -64,7 +64,7 @@ jQuery(window).load(function(){
   var pw = jQuery("#placeholder img").width() + 8;
   jQuery("#placeholder img").parents('div.featured').css('maxWidth', pw+'px'); // force IE to play nice
   
-  var pw = 960 - (jQuery("#product .images").outerWidth() + 40);
+  var pw = 960 - (jQuery("#product .images").outerWidth() + 120);
   jQuery("#product .content").css('width', pw+'px');
   jQuery("#product .content").fadeIn('slow');
   
