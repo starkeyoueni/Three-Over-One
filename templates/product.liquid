@@ -45,10 +45,16 @@
         <div class="description">
           {{ product.description }}
         </div>
-        <div class="details"><span class="type">type: {{ product.type | link_to_type }}</span> <span class="vendor">vendor: {{ product.vendor | link_to_vendor }}</span></div>
       {% endif %}
       
-      <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix">
+      <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix">	
+      
+      {% if product.price_min < product.compare_at_price_min %}
+        <p class="price" id="price-preview">{{ product.price_min | money }} <span>was {{ product.compare_at_price_min | money }}</span></p>
+      {% else %}
+        <p class="price" id="price-preview">{{ product.price_min | money }}</p>
+      {% endif %}
+
         {% if product.options.size > 1 %}
           <div class="select clearfix">
             <select id="product-select" name='id'>
@@ -69,12 +75,8 @@
         {% else %}
           <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
         {% endif %}
-        
-        {% if product.price_min < product.compare_at_price_min %}
-          <p class="price" id="price-preview">{{ product.price_min | money }} <span>was {{ product.compare_at_price_min | money }}</span></p>
-        {% else %}
-          <p class="price" id="price-preview">{{ product.price_min | money }}</p>
-        {% endif %}
+
+<!-- Original price location -->
         
         {% if product.available %}        
           <div class="purchase clearfix">
