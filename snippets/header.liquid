@@ -1,3 +1,34 @@
+<header>
+<div class="inner clearfloat">
+  <nav class="clearfloat">
+    <span class="three column logo"><a href="{{ shop.url }}">THREE OVER ONE</a></span>
+    <span class="three column section s2">
+        {% case template %}
+          {% when 'index' %}
+              HOME
+          {% when 'product' %}
+             .
+          {% else %}
+            SHOP
+        {% endcase %}
+    </span>
+    <span class="three column menu"><a href="#"><div class="nav-items">ABOUT</div></a> &middot; <a href="/collections/all"><div class="nav-items shop-nav">SHOP</div></a> &middot; <a href="#"><div class="nav-items">BLOG</div></a></span>
+	<div id="shop-nav-down">
+		<div id="shop-nav-main">
+			<ul>
+			{% for product_type in collection.all_types %}
+			<li class="{{ product_type | handleize }}">
+			{{ product_type | link_to_type }}
+			</li>
+			{% endfor %}
+			</ul>¨
+		</div>
+	</div>
+  </nav>
+</div>  
+</header>
+
+<!--
 <header class="clearfix">
 <div id="header-inner">
   <span class="logo">
@@ -8,8 +39,9 @@
     <span class="cart">
       <a href="/cart"><span class="cart-total-items"><span class="count">{{ cart.item_count }}</span> {{ cart.item_count | pluralize: 'Item', 'Items' }} (<span class="total_price">{{ cart.total_price | money }}</span>)</span></a></span>
     <div id="cart-updated"><a href="/cart">Added to cart</a></div>
-  </div> <!-- /.cart-summary -->
+  </div> /.cart-summary -->
 
+<!--
   <nav class="main">
 	<ul class="clearfix">
 		{% for link in linklists[settings.main_linklist].links %}
@@ -26,7 +58,7 @@
 			{% endif %}
 		{% endfor %}
 
-		<!-- <li class="fr cy">
+		 <li class="fr cy">
 			<form id="search_form" class="searchform" name="search" action="/search">
 				{% if template == "search" and search.performed and search.terms != "" %}
 					<input type="text" name="q" class="replace" value="{{ search.terms }}" />
@@ -34,7 +66,7 @@
 					<input type="text" class="replace" name="q" value="Search..." />
 				{% endif %}
 			</form>
-		</li> -->
+		</li>
 	</ul>
   </nav>
 
@@ -51,3 +83,5 @@
   </p>
 </div>
 </header>
+
+-->

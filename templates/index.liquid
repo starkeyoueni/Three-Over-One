@@ -1,5 +1,5 @@
-<div id="index" class="clearfix">
-  {% if settings.homepage_banner == "slider" or settings.homepage_banner == "slideshow" %}
+<!--
+{% if settings.homepage_banner == "slider" or settings.homepage_banner == "slideshow" %}
     <div class="slider-container">
       {% if settings.homepage_banner == "slider" %}
         <div id="content-scroll" class="scroll">
@@ -9,9 +9,11 @@
             {% endfor %}
           </div><!-- /#latest-products -->
         </div>
+<!--
         <div class="slider">
           <span class="ui-slider-handle">&nbsp;</span>
-        </div>
+        </div> 
+<!--
       {% elsif settings.homepage_banner == "slideshow"   %}
         <ul id="slider">
           <li class="slide"><img src="{{ 'slideshow_1.jpg' | asset_url }}" data-url="{{ settings.image_1_link }}" class="slide-img" /></li>
@@ -26,6 +28,73 @@
         </div>
       {% endif %}
     </div>
-  {% endif %}
-
-</div> <!-- /#index -->
+ {% endif %}
+ -->
+ <style>
+    #front-page-slides {
+         width: 100%;
+         height: 640px;
+         background: #eee;
+         position: relative;
+    }
+    
+    #front-page-slides ul {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    #slide-show-nav {
+        width: 400px;
+        height: 24px;
+        background: #333;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin: auto !important;
+        z-index: 2;
+    }
+    
+    #slide-show-nav li { 
+        float: left;
+    }
+    
+    #slide-show {
+         width: 100%;
+         height: 100%;
+         background: #222;
+         overflow: hidden;
+         position: relative;
+    }
+    
+    #slide-show ul {
+        position: absolute;
+        width: 4000px;
+        height: 100%;
+        background: #aaa;
+    }
+    
+    #slide-show ul li {
+        float: left;
+    }
+ </style>
+ <div id="front-page-slides">
+    <ul id="slide-show-nav" class="cf">
+        <li>..</li>
+        <li>..</li>
+        <li>..</li>
+    </ul>
+    <div id="slide-show">
+        <ul class="cf">
+            <li>..</li>
+            <li>..</li>
+            <li>..</li>
+        </ul>
+    </div>
+ </div><!-- slides -->
+ 
+ <div id="front-page">
+    <div class="inner">
+    </div>
+ </div>

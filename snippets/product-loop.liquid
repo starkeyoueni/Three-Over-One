@@ -1,3 +1,7 @@
+
+
+
+<!--
 {% capture collection_handle %}{{ product-loop | handleize }}{% endcapture %}
 {% if collection_handle == "" %}
 <div id="product-loop-{{ product.handle }}" class="product{% cycle 'featured': '', '', ' last' %}">
@@ -12,8 +16,19 @@
 </div>
 {% else %}
 <div id="product-loop-{{ product.handle }}" class="product{% cycle 'featured': '', '', ' last' %}">
+	
+	  {{ product.handle }}
   <div class="image">
-    <a href="/collections/{{ product-loop }}{{ product.url }}"><img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape  }}" /></a>
+	<script>
+	$(document).ready(function(){
+		
+		$(".{{ product.handle }}").click(function(e){e.preventDefault();
+			$.get("/products/{{ product.handle }}.js", function(data){ console.log(data) });
+		});
+		
+	});
+	</script>
+    <a class="{{ product.handle }}" href="/collections/{{ product-loop }}{{ product.url }}"><img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape  }}" /></a>
   </div>
   {% if settings.use_caption %}
   <div class="caption clearfix">
@@ -35,3 +50,4 @@
 </div>
 {% endif %}
 {% cycle 'clear-table': '', '', '<div style="clear:both;"></div>' %}
+-->
