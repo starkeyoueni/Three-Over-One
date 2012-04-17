@@ -1,3 +1,23 @@
+<header>
+<div class="inner clearfloat">
+  <nav class="clearfloat">
+    <span class="three column"><a href="{{ shop.url }}">THREE OVER ONE</a></span>
+    <span class="three column section s2">
+        {% case template %}
+          {% when 'index' %}
+              HOME
+          {% when 'product' %}
+             .
+          {% else %}
+            SHOP
+        {% endcase %}
+    </span>
+    <span class="three column menu"><a href="#">ABOUT</a> &middot; <a href="/collections/all">SHOP</a> &middot; <a href="#">BLOG</a></span>
+  </nav>
+</div>  
+</header>
+
+<!--
 <header class="clearfix">
 <div id="header-inner">
   <span class="logo">
@@ -10,6 +30,7 @@
     <div id="cart-updated"><a href="/cart">Added to cart</a></div>
   </div> <!-- /.cart-summary -->
 
+<!--
   <nav class="main">
 	<ul class="clearfix">
 		{% for link in linklists[settings.main_linklist].links %}
@@ -37,7 +58,7 @@
 		</li> -->
 	</ul>
   </nav>
-
+<!--
   <p class="contact-info">
     {% if shop.customer_accounts_enabled %}
     <span class="customer">
@@ -51,3 +72,5 @@
   </p>
 </div>
 </header>
+
+-->

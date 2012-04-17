@@ -23,8 +23,9 @@
   {% endif %}
   <meta name="author" content="">
 
-  {{ 'reset.css' | asset_url | stylesheet_tag }}
-  {{ 'shop.css' | asset_url | stylesheet_tag }}
+  <!-- {{ 'reset.css' | asset_url | stylesheet_tag }}   -->
+  <!-- {{ 'shop.css' | asset_url | stylesheet_tag }}    -->
+  
 
   <!--[if IE]>
   {{ 'ie.css' | asset_url | stylesheet_tag }}
@@ -47,6 +48,9 @@
   {{ 'jquery.slider.js' | asset_url | script_tag }}
   {{ 'cloud-zoom.js' | asset_url | script_tag }}
   {{ 'shop.js' | asset_url | script_tag }}
+  
+  {{ 'functions.js' | asset_url | script_tag }}
+  {{ 'style.css' | asset_url | stylesheet_tag }}
   
   {% if template contains 'customers' %}
     {{ "shopify_common.js" | shopify_asset_url | script_tag }}
@@ -79,16 +83,16 @@
 </head>
 
 <body>
-  <div class="wrapper">
-    
     {% include 'header' %}
 
-    <section id="body" class="clearfix">
+  <section>
+    <div class="content clearfloat">
       {{ content_for_layout }}
-    </section> <!-- /#body -->
+ 
+    </div>
 
     {% include 'footer' %}
+  </section>
     
-  </div> <!-- /.wrapper -->
 </body>
 </html>
