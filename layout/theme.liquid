@@ -24,7 +24,7 @@
   <meta name="author" content="">
 
   <!-- {{ 'reset.css' | asset_url | stylesheet_tag }}   -->
-  <!-- {{ 'shop.css' | asset_url | stylesheet_tag }}    -->
+  {{ 'shop.css' | asset_url | stylesheet_tag }}
   
 
   <!--[if IE]>
@@ -84,15 +84,19 @@
 
 <body>
     {% include 'header' %}
-
-  <section>
+    
+    {% if template != 'index' %}
+    <section>
     <div class="content clearfloat">
+    {% endif %}
+      
       {{ content_for_layout }}
- 
+      
+    {% if template != 'index' %}
     </div>
-
     {% include 'footer' %}
-  </section>
+    </section>
+   {% endif %}
     
 </body>
 </html>

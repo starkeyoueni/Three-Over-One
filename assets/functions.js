@@ -17,16 +17,13 @@ $(function() {
 
 	// MouseOver Events
 
-		$('div.shop-nav, #shop-nav-down, .nav-items').hover(function(){
-			if ($(this) == $("div.shop-nav")) {
-				$("#shop-nav-down").stop().animate({"opacity" : 1});
-				$(this).stop().animate({"opacity" : 1});
-			} else {
-				$(this).stop().animate({"opacity" : 1});
-			}},
+		$('div.shop-nav, #shop-nav-down').hover(function(){
+				$("#shop-nav-down").stop().animate({"margin-top" : "0px"});
+				$(this).stop().animate({"background-color" : '#fff'});
+			},
 			function(){
-				$("#shop-nav-down").stop().animate({"opacity" : 0});
-				$(this).stop().animate({"opacity" : 0});
+				$("#shop-nav-down").stop().animate({"margin-top" : "-300px"});
+				$("div.shop-nav").stop().animate({"background-color" : '#F5EFE5'});
 			});
 								  
 });//
@@ -85,5 +82,5 @@ function scrollToPlace(e) {
   //CLOSE
   productDetail.Open.removeClass("open").container.stop().animate({"height" : "0px"}, productDetail.config.openSpeed);
   //SCROLL
-  $("body").stop().animate({scrollTop: productDetail.scrollto()}, productDetail.config.scrollSpeed);
+  $("html, body").stop().animate({scrollTop: productDetail.scrollto()}, productDetail.config.scrollSpeed);
 }
