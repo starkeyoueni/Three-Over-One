@@ -49,14 +49,15 @@
       
       <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix">	
       
+	<!-- Price appears above sizing -->
       {% if product.price_min < product.compare_at_price_min %}
-        <p class="price" id="price-preview">{{ product.price_min | money }} <span>was {{ product.compare_at_price_min | money }}</span></p>
+        <p class="price" id="price-preview">{{ product.price_min | money | remove: '.00'  }} <span>was {{ product.compare_at_price_min | money | remove: '.00'  }}</span></p>
       {% else %}
-        <p class="price" id="price-preview">{{ product.price_min | money }}</p>
+        <p class="price" id="price-preview">{{ product.price_min | money | remove: '.00'  }}</p>
       {% endif %}
 
         {% if product.options.size > 1 %}
-          <div class="select clearfix">
+          <div class="select clearfix options">
             <select id="product-select" name='id'>
               {% for variant in product.variants %}
                 <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
@@ -64,7 +65,7 @@
             </select>
           </div>
         {% elsif product.options.size == 1 and product.variants.size > 1 %}
-          <div class="select clearfix">
+          <div class="select clearfix options">
             <label>{{ product.options[0] }}</label>
             <select id="product-select" name='id'>
               {% for variant in product.variants %}

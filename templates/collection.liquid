@@ -6,9 +6,13 @@
             <div class="inner product-row clearfloat">
         {% endif %}
         
-        {% if product.featured_image.src %}
-            <a href="#" class="product-thumb" data="{{ product.handle }}"><img src="{{ product.featured_image.src | product_img_url: 'large' }}"></a>
-        {% endif %}
+        <a href="#" class="product-thumb" data="{{ product.handle }}">
+        	{% if product.featured_image.src %}
+				<img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape  }}">
+            {% else %}
+              <img src="{{ collection.products.first.featured_image.src | product_img_url: 'large' }}" alt="{{ collection.products.first.featured_image.alt | escape  }}" />
+            {% endif %}
+		</a>
         
         {% assign repeatCount = repeatCount | plus: 1 %}
         
@@ -49,6 +53,7 @@
     </div>
   {% else %}
     {% paginate collection.products by settings.pagination_limit %}
+
       <div id="content-table" class="clearfix">
         {% for product in collection.products %}
           {% include 'product-loop' with collection.handle %}

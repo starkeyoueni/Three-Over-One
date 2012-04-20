@@ -106,15 +106,15 @@ input: active, a: active {
 }
 
 input[type=submit], button, a.btn {
-  border: 1px #000 solid;
+  border: 1px solid #BBB;
   outline: none;
-  padding: 10px 25px;
+  padding: 10px 50px;
   color: #000;
   background: {{ settings.btn_color }};
-  font-size: 12px;
-  font-style: italic;
-  text-transform: lowercase;
+  font-size: 14px;
   font-family:"Georgia", serif;
+  border-radius: 0px;
+  margin: 0px;
 }
 
 input[type=submit]: hover, button: hover, a.btn: hover {
@@ -756,7 +756,7 @@ footer nav li a.current {
 }
 #product .description p, #product .description span {
 	font-size: 10px;
-	line-height: 16px;
+	line-height: 13px;
 }
 #product .details {
   padding: 13px 0;
@@ -784,21 +784,24 @@ footer nav li a.current {
   background:#FCFCFC;
 }
 #product .price {
-  float: left;
-  margin: 16px 0;
-  padding: 10px 0;
+  display: block;
+  margin: 25px 0 15px;
   color:{{ settings.header_color }};
-  font-size: 16px;
+  font-size: 40px;
 }
 #product .price span {
   color:{{ settings.text_color }};
   font-size: 14px;
 }
 #product .purchase {
-  float: right;
-  margin: 16px 0;
+  display: block;
+  padding: 16px 0;
+  border-top: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
 }
-
+#product .options {
+	display: inline-block;
+}
 #product .type, #product .vendor {
   margin-right: 8px;
 }
