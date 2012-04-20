@@ -1,0 +1,74 @@
+<div class="product-detail clearfloat">
+          <div class="inner clearfloat">
+            <div class="product-detail-inner left cleafloat type1">
+              <div class="imageInner clearfloat">
+                <div class="imageContainer">
+                  <img src="#.jpg" />
+                </div>
+                <div class="imageNav">
+                  -                                        
+                  <div class="imageThumbs clearfloat">
+                    <div class="imageThumbsContainer clearfloat">
+                      <a href="#"><img src="#"></a>
+                      <a href="#"><img src="#"></a>
+                      <a href="#"><img src="#"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- left -->              
+            <div class="product-detail-inner right clearfloat">
+              <form>
+                <!-- <span class="code">#909090</span> -->
+                <h1 class="title">.</h1>
+                <p class="description">
+                  Made from some special fabric<br/>
+                  Made from some special
+                  <span class="price">.</span>
+                </p>
+                <div class="select clearfloat">
+                  <input name="size" type="hidden">
+                  <div class="select-box" for="size">
+                    <span>S</span>
+                    <div class="options size clearfloat">
+                      <ul class="clearfloat">
+                        <li class="S">S
+                          <!-- <div class="measurements">Measurements</div> -->
+                        </li>
+                        <li class="M">M
+                          <!-- <div class="measurements">Measurements</div> -->
+                        </li>
+                        <li class="L">L
+                          <!-- <div class="measurements">Measurements</div> -->
+                        </li> 
+                        <li class="XL">XL
+                          <!--<div class="measurements">Measurements</div> -->
+                        </li>
+                      </ul>
+                    </div><!-- options -->
+                  </div><!-- select-box -->
+
+                  <input name="colour" type="hidden">           
+                  <div class="select-box" for="colour">
+                    <span>C</span>
+                    <div class="options colour clearfloat">
+                      <ul class="clearfloat">
+                        <li class="R">R</li>
+                        <li class="G">G</li> 
+                        <li class="B">B</li>
+                      </ul>
+                    </div><!-- options -->
+                  </div><!-- select-box -->
+                </div>
+                <a href="#" class="sizechart">Size information</a>
+                <div class="add-to">
+                  <input type="button" value="Add to cart" />
+                </div>
+              </form>            
+              <div id="related-items">
+                {% include 'related-products' %}
+              </div><!-- related items -->
+            </div><!-- left -->
+          </div><!-- inner -->
+        </div><!-- product detail -->
