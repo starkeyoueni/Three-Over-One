@@ -7,12 +7,14 @@
             {% for product in collections[settings.slider_collection].products %}
             {% include 'product-slide' with settings.slider_collection %}
             {% endfor %}
-          </div><!-- /#latest-products -->
+          </div>
         </div>
+-->
 <!--
         <div class="slider">
           <span class="ui-slider-handle">&nbsp;</span>
         </div> 
+-->
 <!--
       {% elsif settings.homepage_banner == "slideshow"   %}
         <ul id="slider">
@@ -30,6 +32,7 @@
     </div>
  {% endif %}
  -->
+ 
  <style>
     #front-page-slides {
          width: 100%;
@@ -79,6 +82,7 @@
         float: left;
     }
  </style>
+ 
  <div id="front-page-slides">
     <ul id="slide-show-nav" class="cf">
         <li>..</li>
@@ -92,7 +96,7 @@
             <li>..</li>
         </ul>
     </div>
- </div><!-- slides -->
+ </div>
  
  <div id="front-page">
     <div class="inner">
