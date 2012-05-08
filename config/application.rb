@@ -15,8 +15,14 @@ module Too2
   class Application < Rails::Application
     
     # Shopify API connection credentials:
-    config.shopify.api_key = "74a1784a14f5ae773b2212db5c9fd8f4"
-    config.shopify.secret = "61aefdf653a3c88263403c8d98e00704"
+    case Rails.env
+    when 'development'
+      config.shopify.api_key = "74a1784a14f5ae773b2212db5c9fd8f4"
+      config.shopify.secret = "61aefdf653a3c88263403c8d98e00704"
+    when 'production'
+      config.shopify.api_key = "8ea6c37c4f2d8d1525cb85402ca99c90"
+      config.shopify.secret = "cc719a1c20f6466fbf356a63a309f13e"
+    end
     
     config.generators do |g|
       g.view_specs false
