@@ -1,83 +1,8 @@
 $(function() {
-  var selectCallback = function(variant, selector) {
-    if (variant && variant.available == true) {
-      // selected a valid variant
-       // remove unavailable class from add-to-cart button, and re-enable button
-      jQuery('#add-to-cart').removeClass('disabled').removeAttr('disabled').val('Add to Cart');
-      if(variant.price < variant.compare_at_price){
-        jQuery('#price-preview').html(Shopify.formatMoney(variant.price, "{{shop.money_format}}") + " <span>was " + Shopify.formatMoney(variant.compare_at_price, "{{shop.money_format}}") + "</span>");
-      } else {
-        jQuery('#price-preview').html(Shopify.formatMoney(variant.price, "{{shop.money_format}}"));
-      }
-
-    } else {
-      // variant doesn't exist
-      var message = variant ? "Sold Out" : "Unavailable";    
-      jQuery('#add-to-cart').addClass('disabled').attr('disabled', 'disabled').val('Sold Out');      // set add-to-cart button to unavailable class and disable button
-      jQuery('#product .variants .price').text(message); // update price-field message
-    }
-  };
-
-  function remove(s, t) {
-    /*
-    **  Remove all occurrences of a token in a string
-    **    s  string to be processed
-    **    t  token to be removed
-    **  returns new string
-    */
-    i = s.indexOf(t);
-    r = "";
-    if (i == -1) return s;
-    r += s.substring(0,i) + remove(s.substring(i + t.length), t);
-    return r;
-  }
-
-  // initialize multi selector for product
-  jQuery(function() {
-    if (jQuery.cookie("viewed-products") != null){ // if cookie exists...
-      var products = jQuery.cookie("viewed-products");
-      var productHandles = products.split(" ");
-      var matches = 0;
-      var limit = 3;
-      for (var i = (productHandles.length - 1); i >= 0; i--) {
-        if(productHandles[i] != "{{ product.handle }}" && productHandles[i] != "" && (matches < limit)){
-          Shopify.getProduct(productHandles[i]);
-          matches++;
-        }
-      }
-
-      if (products.indexOf("{{ product.handle }}") == -1){ // add current product to list if it isn't already there
-        products += " {{ product.handle }}";
-        jQuery.cookie("viewed-products", products, {path: "/"});
-      } else { // if it is already there, push it to the end of the string
-        var newstring = remove(products, '{{ product.handle }}');
-        newstring += " {{ product.handle }}";
-        jQuery.cookie("viewed-products", newstring.replace(/ /g,' '), {path: "/"});
-      }
-    } else { // create cookie if it doesn't already exist
-      jQuery.cookie("viewed-products", "{{ product.handle }}", {path: "/"});
-    }
-  
-    {% if product.variants.size > 1 or product.options.size > 1 %}
-      new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
-  
-        {% assign found_one_in_stock = false %}
-        {% for variant in product.variants %}
-          {% if variant.available and found_one_in_stock == false %}
-            {% assign found_one_in_stock = true %}
-            {% for option in product.options %}
-              jQuery('#product-select-option-' + {{ forloop.index0 }}).val({{ variant.options[forloop.index0] | json }}).trigger('change');
-            {% endfor %}
-          {% endif %}
-        {% endfor %}
-    {% endif %}
-  });
-  
   //BINDINGS
     $(".product-row a").bind("click", scrollToPlace);
-  
-    $(".product-thumb").click(function(){
-    
+
+    $(".product-thumb").click(function() {
         product = "/products/" + $(this).attr("data");
         
         $.get( product, function(data){
@@ -87,11 +12,9 @@ $(function() {
             html = data.substring(start,end);
             $(".row.open").find(".product-detail .inner").html(html);
         })
-    
     });
 
 	// MouseOver Events
-
 		$('div.shop-nav, #shop-nav-down').hover(function(){
 				$("#shop-nav-down").stop().animate({"margin-top" : "0px"});
 				$(this).stop().animate({"background-color" : '#fff'});
