@@ -1,0 +1,15 @@
+common: &common
+  adapter: postgresql
+  username: too
+  password: too
+
+development:
+  <<: *common
+  database: too_development
+
+test:
+  <<: *common
+  database: too_test
+
+production:
+  uri: <%= ENV['DATABASE_URL'] %>

@@ -1,0 +1,9 @@
+SHOPIFY_STORE         three-over-one.myshopify.com
+SHOPIFY_API_KEY       89e686618d3d872d7c9bf389dc3a2fe5
+SHOPIFY_PASSWORD      7ef04f19f1d3f30f0064dbfa61753436
+Shared Secret         66a8a61cbcfa04224a922e2d76c058b0
+
+URL format    https://apikey:password@hostname/admin/resource.xml
+
+Example URL   https://89e686618d3d872d7c9bf389dc3a2fe5:7ef04f19f1d3f30f0064dbfa61753436@three-over-one.myshopify.com/admin/orders.xml
+Invocations   0 since March 27, 2012

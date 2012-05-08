@@ -1,0 +1,10 @@
+- unless settings.featured_products == ''
+  - if collections[settings.featured_products].products.size > 0
+    #featured-products
+      .more-info
+        %span.upper Featured
+        %span.lower 3 Items
+
+      #content-table.clearfix
+        = for product in collections[settings.featured_products].products limit:3
+          = render partial: 'product-loop',  settings.featured_products %}
