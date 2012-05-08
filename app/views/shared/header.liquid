@@ -1,0 +1,91 @@
+<header>
+<div class="inner clearfloat">
+  <nav class="clearfloat">
+    <span class="three column logo"><a href="{{ shop.url }}">THREE OVER ONE</a></span>
+    <span class="three column section s2">
+        {% case template %}
+          {% when 'index' %}
+              HOME
+          {% when 'product' %}
+             .
+          {% else %}
+            SHOP
+        {% endcase %}
+    </span>
+    <span class="three column menu">
+		<a href="#"><div class="nav-items">ABOUT</div></a>
+			&middot;
+		<a href="/collections/all"><div class="nav-items shop-nav">SHOP</div></a>
+			&middot;
+		<a href="#"><div class="nav-items">BLOG</div></a>
+	</span>
+  </nav>
+</div>
+<div id="shop-nav-down">
+	<div id="shop-nav-main">
+		<ul>
+		{% for link in linklists.mens-categories.links %}
+		   <li><a {% if link.active %}class="active"{% endif %}>{{ link.title | link_to: link.url }}</li>
+		{% endfor %}
+		</ul>
+	</div>
+</div>
+</header>
+
+<!--
+<header class="clearfix">
+<div id="header-inner">
+  <span class="logo">
+    <a href="/">{{ shop.name | upcase }}</a>
+  </span>
+
+  <div class="cart-summary">
+    <span class="cart">
+      <a href="/cart"><span class="cart-total-items"><span class="count">{{ cart.item_count }}</span> {{ cart.item_count | pluralize: 'Item', 'Items' }} (<span class="total_price">{{ cart.total_price | money }}</span>)</span></a></span>
+    <div id="cart-updated"><a href="/cart">Added to cart</a></div>
+  </div> /.cart-summary -->
+
+<!--
+  <nav class="main">
+	<ul class="clearfix">
+		{% for link in linklists[settings.main_linklist].links %}
+			{% if linklists[link.handle] == empty %}
+				<li><a href="{{ link.url }}"{% if link.active %} class="current"{% endif %}><span>{{ link.title }}</span></a></li>
+			{% else %}
+				<li class="dropdown"><a href="{{ link.url }}"{% if link.active %} class="current"{% endif %}><span>{{ link.title }}</span></a>
+				<ul class="dropdown">
+					{% for link in linklists[link.handle].links %}
+						<li><a href="{{ link.url }}"{% if link.active %} class="current"{% endif %}>{{ link.title }}</a></li>
+					{% endfor %}
+				</ul>
+				</li>
+			{% endif %}
+		{% endfor %}
+
+		 <li class="fr cy">
+			<form id="search_form" class="searchform" name="search" action="/search">
+				{% if template == "search" and search.performed and search.terms != "" %}
+					<input type="text" name="q" class="replace" value="{{ search.terms }}" />
+				{% else %}
+					<input type="text" class="replace" name="q" value="Search..." />
+				{% endif %}
+			</form>
+		</li>
+	</ul>
+  </nav>
+
+  <p class="contact-info">
+    {% if shop.customer_accounts_enabled %}
+    <span class="customer">
+      {% if customer %}
+      	Welcome <a href="/account">{{ customer.first_name }}</a> | {{ 'Logout' | customer_logout_link }}
+      {% else %}
+      	{{ 'Customer Login' | customer_login_link }}
+      {% endif %}
+    </span>
+    {% endif %}
+  </p>
+</div>
+</header>
+
+-->

@@ -1,4 +1,4 @@
-Three-Over-One e-commerce site
-==============================
+TOO
+======
 
-Now with Shopify templates.
+Rails-based shopify site.
