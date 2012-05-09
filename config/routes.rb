@@ -1,4 +1,6 @@
 Too2::Application.routes.draw do
+  resources :outfits
+
   resources :admin do
     collection do
       get :load_database
