@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  def front_page
+  def about
     
   end
   

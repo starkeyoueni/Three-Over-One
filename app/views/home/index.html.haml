@@ -1,0 +1,36 @@
+%header.jumbotron
+  .inner
+    .container
+      %h1 three-over-one
+%h2 Products
+#accordion.accordion
+  - if @products.blank?
+    .accordion-group
+      .accordion-heading
+        %em There are no products in the store.
+  - else
+    - @products.each_with_index do |product, index|
+      .accordion-group
+        .accordion-heading
+          %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "##{product.id}"}
+            = product.title
+            / %span.pull-right.muted
+            /   = product.price_range
+            /   = current_shop.shop.currency
+        .accordion-body.collapse.if.index.1{:class => "<haml:silent> == </haml:silent><haml:block>in</haml:block>", :id => product.id}
+          .accordion-inner
+            / - if !product.images.empty?
+            /   .polaroid
+            /     = link_to image_tag(product.images.first.medium), '#modal-'+product.id.to_s, :'data-toggle' => 'modal'
+            / %p
+            /   %strong Type:
+            /   = product.product_type
+            %p= raw(product.body_html)
+            %br/
+      .modal.hide.fade{:id => "modal-#{product.id}", :style => "display:none;"}
+        .modal-header
+          %a.close{"data-dismiss" => "modal"} ×
+          %h3= product.title
+        .modal-body
+          / - if !product.images.empty?
+          /   = image_tag product.images.first.large

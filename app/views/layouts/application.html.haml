@@ -1,16 +1,13 @@
 !!!
 %html{:lang => "en"}
   %head
-    %title Shopify Demo App
+    %title Three-Over-One
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "../assets/favicon.png", :rel => "shortcut icon"}
-    %link{:href => "../assets/shopify-57.png", :rel => "apple-touch-icon"}
-    %link{:href => "../assets/shopify-72.png", :rel => "apple-touch-icon", :sizes => "72x72"}
-    %link{:href => "../assets/shopify-114.png", :rel => "apple-touch-icon", :sizes => "114x114"}
     /[if lt IE 9]
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   %body
@@ -18,5 +15,4 @@
     .container
       .content
         = yield
-      %footer
-        %p A Shopify app by (company name here)
+    = render partial: 'shared/footer'

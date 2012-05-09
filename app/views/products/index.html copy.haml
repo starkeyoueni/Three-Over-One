@@ -1,0 +1,39 @@
+- if collection_handle == ""
+  .cycle{:class => "product 'featured': '', '', ' last'", :id => "product-loop-#{product.handle}"}
+    .image
+      %a{:href => product.url}
+        %img{:alt => product.featured_image.alt | escape, :src => product.featured_image.src | product_img_url: 'large'}/
+    .details.clearfix
+      %a{:href => product.url}
+        %span.title= product.title
+- else
+  .cycle{:class => "product 'featured': '', '', ' last' ", :id => "product-loop-#{product.handle}"}
+    = product.handle
+    .image
+        %a{:class => product.handle, "data-attr" =>         $(document).ready(function(){
+          $(".#{product.handle}").click(function(e){e.preventDefault();
+            $.get("/products/#{product.handle}.js", function(data){ console.log(data) });
+          });
+          
+        });
+, :href => "/collections/#{product-loop}#{product.url}"}
+        %img{:alt => product.featured_image.alt | escape, :src => product.featured_image.src | product_img_url: 'large'}/
+
+      .caption.clearfix
+        %a{:href => "/collections/#{product-loop}#{product.url}"}
+          %span.title
+            = product.title
+            %br/
+            %small.if.endif{:class => "price product.compare_at_price &gt; product.price </haml:silent><haml:block> sale<haml:silent> </haml:silent>"}
+              = product.price | money
+              - if product.compare_at_price > product.price
+                %del
+                  was #{product.compare_at_price | money}
+                - endif
+    - else
+      .details.clearfix
+        %a{:href => "/collections/#{product-loop}#{product.url}"}
+          %span.title= product.title
+      - endif
+  - endif
+  - cycle 'clear-table': '', '', '<div style="clear:both;"></div>'

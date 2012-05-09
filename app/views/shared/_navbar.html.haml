@@ -1,21 +1,68 @@
-.navbar.navbar-fixed-top
-  .navbar-inner
-    .container
-      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      = link_to 'Shopify Demo App', '/', :class => 'brand'
-      - if current_shop
-        .nav-collapse
-          %ul.nav
-            <li class='#{active_nav_class('home', 'index')}'>#{link_to 'Where to Start', '/'}
-            <li class='#{active_nav_class('home', 'design')}'>#{link_to 'Bootstrap Info', '/design'}
-        %ul.nav.pull-right
-          %li.dropdown
-            = link_to raw(current_shop.url+' <b class="caret"></b>'), "https://#{current_shop.url}", :class => 'shop_name dropdown-toggle', :'data-toggle' => 'dropdown'
-            %ul.dropdown-menu
-              %li= link_to raw('<i class="icon-home"></i> Storefront'), "http://"+current_shop.url, :target => 'blank'
-              %li= link_to raw('<i class="icon-cog"></i> Shopify Admin'), "http://"+current_shop.url+"/admin", :target => 'blank'
-              %li.divider
-              %li= link_to raw('<i class="icon-off"></i> logout'), logout_path
+%header
+  .inner.clearfloat
+    %nav.clearfloat
+      %span.three.column.logo= link_to "THREE OVER ONE", root_path
+      %span.three.column.section.s2 HOME
+      %span.three.column.menu
+        .nav-items= link_to "ABOUT", about_pages_path
+        &middot;
+        .nav-items.shop-nav= link_to "SHOP", ""
+        / collections_path
+        &middot;
+        .nav-items= link_to "BLOG", ""
+        / blog_pages_path
+  /     
+  / #shop-nav-down
+  /   #shop-nav-main
+  /     %ul
+  /       - @shop.categories.each do |category|
+  /         %li= category_link(category)
+          
+/ %nav.main
+/   %ul.clearfix
+/     - for link in linklists[settings.main_linklist].links
+/       - if linklists[link.handle] == empty
+/         %li
+/           <a href="#{link.url}"
+/           - if link.active
+/             class="current"
+/             - endif
+/             >
+/             %span= link.title
+/       - else
+/         %li.dropdown
+/           <a href="#{link.url}"
+/           - if link.active
+/             class="current"
+/             - endif
+/             >
+/             %span= link.title
+/             %ul.dropdown
+/               - for link in linklists[link.handle].links
+/                 %li
+/                   <a href="#{link.url}"
+/                   - if link.active
+/                     class="current"
+/                     - endif
+/                     >#{link.title}
+/                 - endfor
+/         - endif
+/         - endfor
+/         %li.fr.cy
+/           %form#search_form.searchform{:action => "/search", :name => "search"}
+/             - if template == "search" and search.performed and search.terms != ""
+/               %input.replace{:name => "q", :type => "text", :value => search.terms}/
+/             - else
+/               %input.replace{:name => "q", :type => "text", :value => "Search..."}/
+/               - endif
+/ %p.contact-info
+/   - if shop.customer_accounts_enabled
+/     %span.customer
+/       - if customer
+/         Welcome
+/         %a{:href => "/account"}= customer.first_name
+/         | #{'Logout' | customer_logout_link}
+/       - else
+/         = 'Customer Login' | customer_login_link
+/         - endif
+/     - endif
