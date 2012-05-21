@@ -1,0 +1,7 @@
+.cycle{:class => "product 'featured': '', '', ' last'", :id => "product-loop-#{product.handle}"}
+  .image
+    %a{:href => product.url}
+      %img{:alt => product.featured_image.alt, :src => product.featured_image.src}
+  .details.clearfix
+    %a{:href => product.url}
+      %span.title= product.title

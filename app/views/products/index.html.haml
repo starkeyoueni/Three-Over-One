@@ -1,19 +1,53 @@
-%h1 Listing products
-
-%table
-  %tr
-    %th Title
-    %th
-    %th
-    %th
-
-  - @products.each do |product|
-    %tr
-      %td= product.title
-      %td= link_to 'Show', product
-      %td= link_to 'Edit', edit_product_path(product)
-      %td= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Product', new_product_path
+- repeatCount = 0
+- @products.each do |product|
+  - if repeatCount == 0
+    .row.clearfloat
+      = render :partial => 'shared/product-details', :locals => {:product => product}
+      .inner.product-row.clearfloat
+        %a.product-thumb{:data => product.handle, :href => "#"}
+          - if product.images.size > 0 && product.images.first.src
+            %img{:alt => product.title, :src => product.images.first.src}            
+        - repeatCount += 1
+        - repeatCount = 0 if repeatCount == 3
+    / 
+    / #collection{:class => "#{collection.handle} clearfix"}
+    /   - if collection.handle == "dot"
+    /     #content-table.clearfix
+    /       - for collection in collections
+    /         - unless collection.all_products_count  == 0
+    /           .cycle{:class => "product 'featured': '', '', ' last'", :id => "product-#{product.handle}"}
+    /             .image
+    /               %a{:href => collection.url}
+    /                 - if collection.image
+    /                   %img{:alt => collection.image.alt | escape, :src => collection.image.src | collection_img_url: 'large'}/
+    /                 - else
+    /                   %img{:alt => collection.products.first.featured_image.alt, :src => collection.products.first.featured_image.src}
+    /             .details.clearfix
+    /               %a{:href => collection.url}
+    /                 %span.title= collection.title
+    /           - cycle 'clear-table': '', '', '<div style="clear:both;"></div>'
+    /   - else
+    /     - paginate collection.products by settings.pagination_limit
+    /     #content-table.clearfix
+    /       - collection.products.each do |product|
+    /           = render :partial => 'product-loop'
+    /     - if collection.all_tags.size > 0
+    /       .more-info.clearfix
+    /         %span.upper Browse
+    /         %span.lower This Collection
+    /       %ul.tags.clearfix
+    /         <li
+    /         - unless current_tags
+    /           class="active"
+    /           >
+    /           %a{:href => "/collections/#{collection.handle}"} All
+    /           - for tag in collection.all_tags
+    /             - if current_tags contains tag
+    /               %li.active= tag | link_to_remove_tag: tag
+    /             - else
+    /               %li= tag | link_to_tag: tag
+    /       .more-info.clearfix
+    /         .fr
+    /           %span.upper &nbsp;
+    /           %span.lower
+    /             - include 'pagination'

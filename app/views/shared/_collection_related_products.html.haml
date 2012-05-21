@@ -1,0 +1,11 @@
+- if collection and collection.products.size > 1
+  .more-info
+    %span.upper More Products
+    %span.lower From This Collection
+  .slider-container
+    #content-scroll.scroll
+      #content-slide
+        - collection.products.each do |product|
+          = render :partial => 'shared/product-slide-small'
+    .slider
+      %span.ui-slider-handle &nbsp;

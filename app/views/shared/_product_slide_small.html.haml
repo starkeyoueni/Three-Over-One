@@ -1,0 +1,11 @@
+%div{:id => "product-slide-#{product.handle}", :class => "product small{% if forloop.last %} last{% endif %}"
+  .image
+    %a{:href => product.url}
+      %img{:src => product.featured_image.src, :alt => product.title, :title => product.featured_image.alt
+  .details
+    %a{:href => product.url}
+      %span.title
+        = product.title
+      .extras.clearfix
+        %span.description= product.price_min
+        %span.view view details

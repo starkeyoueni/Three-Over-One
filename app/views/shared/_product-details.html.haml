@@ -1,0 +1,53 @@
+.product-detail.clearfloat
+  .inner.clearfloat
+    .product-detail-inner.left.cleafloat.type1
+      .imageInner.clearfloat
+        .imageContainer
+          - if product.images.size > 0
+            %a{:href => product.handle}
+              %img{:alt => product.title, :src =>  product.images.first.src}
+        .imageNav
+          .imageThumbs.clearfloat
+            .imageThumbsContainer.clearfloat
+              %a{:href => "#"}
+                %img{:src => "#"}
+              %a{:href => "#"}
+                %img{:src => "#"}
+              %a{:href => "#"}
+                %img{:src => "#"}
+
+    .product-detail-inner.right.clearfloat
+      %form
+        %h1.title .
+        %p.description
+          Made from some special fabric
+          %br/
+          Made from some special
+          %span.price .
+        .select.clearfloat
+          %input{:name => "size", :type => "hidden"}/
+          .select-box{:for => "size"}
+            %span S
+            .options.size.clearfloat
+              %ul.clearfloat
+                %li.S
+                  S
+                %li.M
+                  M
+                %li.L
+                  L
+                %li.XL
+                  XL
+          %input{:name => "colour", :type => "hidden"}/
+          .select-box{:for => "colour"}
+            %span C
+            .options.colour.clearfloat
+              %ul.clearfloat
+                %li.R R
+                %li.G G
+                %li.B B
+        %a.sizechart{:href => "#"} Size information
+        .add-to
+          %input{:type => "button", :value => "Add to cart"}/
+      / #related-items
+      /   = render :partial => 'shared/related-products'
