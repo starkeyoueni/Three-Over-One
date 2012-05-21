@@ -1,12 +1,8 @@
 - @products.each do |product|
-  - if repeatCount == 0
-    .row.clearfloat
-      = render :partial => 'shared/product-details', :locals => {:product => product}
-      .inner.product-row.clearfloat
-        %a.product-thumb{:data => product.handle, :href => "#"}
-          - if product.images.size > 0 && product.images.first.src
-            %img{:alt => product.title, :src => product.images.first.src}            
-    / 
+  .row.clearfloat
+    = render :partial => 'shared/product-thumbnail', :locals => {:product => product}
+    = render :partial => 'shared/product-details',   :locals => {:product => product}
+
     / #collection{:class => "#{collection.handle} clearfix"}
     /   - if collection.handle == "dot"
     /     #content-table.clearfix
