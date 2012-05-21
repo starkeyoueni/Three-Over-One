@@ -1,0 +1,10 @@
+.inner.product-row.clearfloat
+  %a.product-thumb{:data => product.handle, :href => "#"}
+    - if product.images.size > 0 && product.images.first.src
+      %img{:alt => product.title, :src => product.images.first.src}            
+      %span
+        = product.images.first.src
+        
+.details.clearfix
+  %a{:data => product.handle, :href => "#"}
+    %span.title= product.title
