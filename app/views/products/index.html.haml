@@ -1,4 +1,3 @@
-- repeatCount = 0
 - @products.each do |product|
   - if repeatCount == 0
     .row.clearfloat
@@ -7,8 +6,6 @@
         %a.product-thumb{:data => product.handle, :href => "#"}
           - if product.images.size > 0 && product.images.first.src
             %img{:alt => product.title, :src => product.images.first.src}            
-        - repeatCount += 1
-        - repeatCount = 0 if repeatCount == 3
     / 
     / #collection{:class => "#{collection.handle} clearfix"}
     /   - if collection.handle == "dot"
