@@ -1,0 +1,16 @@
+#blog.clearfix
+  - paginate blog.articles by settings.pagination_limit
+    .articles.clearfix
+      .main      
+        .more-info.clearfix
+        %span.upper= blog.title
+        %span.lower= blog.articles_count =blog.articles_count | pluralize: 'Article', 'Articles'
+      - for article in blog.articles
+        .article.clearfix
+        .content
+          %h4
+            =link_to article.title, article.url
+              = article.content
+    = render partial: "shared/sidebar"
+  = render partial: "shared/pagination"
+= render partial: "shared/featured-products"

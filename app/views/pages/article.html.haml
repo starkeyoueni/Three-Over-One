@@ -1,0 +1,11 @@
+#article.clearfix
+  .main
+    .article-body.clearfix
+      .more-info
+        %span.upper= article.created_at | date: "%B %d %Y"
+        %span.lower= article.created_at | date: "%A at %I:%M %p"
+        %h2 = article.title
+      .content
+        = article.content
+= render :partial 'shared/comments'
+= render :partial 'shared/featured-products'

@@ -1,0 +1,53 @@
+<script type="text/javascript">
+function remove_item(id) {
+  document.getElementById('updates_'+id).value = 0;
+  document.getElementById('cartform').submit();
+}
+</script>
+
+#cart.cart.clearfix
+  - if cart.item_count == 0
+    .c{:style => "padding:100px 0"}
+    %h2.title{:style => "text-align:center"} Your Cart is Empty
+  - else
+    .more-info.clearfix
+      %span.upper Cart Overview
+      %span.lower= "#{cart_count} (#{cart_total})"
+  %form{action: "/cart", method: "post", id: "cartform"}
+    %table
+      %tbody
+        - for item in cart.items
+          %tr
+            %td.r
+              .product_image
+                %a{href: item.product.url}
+                %img{src: item.product.featured_image.thumb, alt: item.product.featured_image.url}
+            %td
+              %a{href: item.product.url}= item.title
+            %td.c
+              %input.item-quantity{type: "text", size:"4", name: "updates[#{item.id}]", id: "updates_#{item.id}", value: item.quantity, onfocus: "this.select();"}
+            %td.c= item.line_price | money
+            %td.c
+              %a.cart{href: "#", onClick: "remove_item(#{item.id}); return false;"} Remove
+          %tr.summary
+            %td{colspan:"2"}
+              %label{for: "note", style: "display:block;"}
+                %a{href: "#", onClick: "jQuery('#note').toggle(); return false;"}Add special instructions for your order&hellip;
+            %td.c
+              %input#update-cart{type: "submit", name: "update", value: "Update"}
+            %td.c
+              %span.total
+                %strong= cart.total_price | money
+            %td.c
+              %input#checkout{type: "submit", name: "checkout", value: "Check Out"}
+        - if additional_checkout_buttons
+          %tr
+            %td{colspan: "4"}
+            %td.c
+              .additional-checkout-buttons
+              %p - or -
+              = content_for_additional_checkout_buttons
+
+        %textarea#note{name: "note", rows: "10", cols: "50", style: "display:none;"}= cart.note
+
+= render partial: 'shared/featured-products'
