@@ -4,17 +4,8 @@ class Image
   field :updated_at,  :type => DateTime
   field :id,          :type => String
   field :position,    :type => Integer
-  field :src,         :type => String 
-
-  def serialize(object)
-    image = Image.new
-    image.created_at = object.created_at
-    image.id         = object.id
-    image.position   = object.position
-    image.updated_at = object.updated_at
-    image.src        = object.src
-    image
-  end
+  field :src,         :type => String
+  field :thumb,       :type => String
 
   def self.from_shopify(object)
     image = Image.new
@@ -23,6 +14,7 @@ class Image
     image.position   = object.position
     image.updated_at = object.updated_at
     image.src        = object.src
+    image.thumb      = object.large
     image
   end
 
@@ -32,6 +24,7 @@ class Image
       "id"          => object.id,
       "position"    => object.position,
       "updated_at"  => object.updated_at,
+      "thumb"       => object.large,
       "src"         => object.src
     }
   end

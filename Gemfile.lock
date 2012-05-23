@@ -139,6 +139,8 @@ GEM
     netrc (0.7.1)
     nokogiri (1.5.2)
     polyglot (0.3.3)
+    quiet_assets (1.0.1)
+      railties (~> 3.1)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -264,6 +266,7 @@ DEPENDENCIES
   less-rails-bootstrap
   mongoid
   mongoid-rspec
+  quiet_assets
   rails (= 3.2.3)
   rspec-rails
   ruby-debug19
