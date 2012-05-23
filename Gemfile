@@ -16,6 +16,7 @@ gem "bson_ext"
 gem "haml-rails"
 gem 'thin'
 gem 'quiet_assets'
+gem 'curb'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
