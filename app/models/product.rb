@@ -4,6 +4,7 @@ class Product
   field :body_html,     :type => String
   embeds_many :images
   embeds_many :variants
+  embeds_many :options
   field :handle,        :type => String
   field :product_type,  :type => String
   field :tags,          :type => Array
