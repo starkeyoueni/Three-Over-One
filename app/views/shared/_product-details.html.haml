@@ -5,47 +5,23 @@
         .imageContainer
           - if product.images.size > 0
             %a{:href => product.handle}
-              %img{:alt => product.title, :src =>  product.images.first.src}
+              = image_tag product.images.first.src, alt: product.title
         .imageNav
           .imageThumbs.clearfloat
             .imageThumbsContainer.clearfloat
-              %a{:href => "#"}
-                %img{:src => "#"}
-              %a{:href => "#"}
-                %img{:src => "#"}
-              %a{:href => "#"}
-                %img{:src => "#"}
+              - for image in product.images
+                %a{:href => "#"}
+                  = image_tag image.small
 
     .product-detail-inner.right.clearfloat
       %form
         %h1.title .
         %p.description
-          Made from some special fabric
-          %br/
-          Made from some special
-          %span.price .
-        .select.clearfloat
-          %input{:name => "size", :type => "hidden"}/
-          .select-box{:for => "size"}
-            %span S
-            .options.size.clearfloat
-              %ul.clearfloat
-                %li.S
-                  S
-                %li.M
-                  M
-                %li.L
-                  L
-                %li.XL
-                  XL
-          %input{:name => "colour", :type => "hidden"}/
-          .select-box{:for => "colour"}
-            %span C
-            .options.colour.clearfloat
-              %ul.clearfloat
-                %li.R R
-                %li.G G
-                %li.B B
+          = product.body_html
+          / TODO: Need to use the variant for the price.
+          %span.price= variant.price
+          = render partial: 'shared/size_selector', locals: {product: product}
+          = render partial: 'shared/colour_selector', locals: {product: product}
         %a.sizechart{:href => "#"} Size information
         .add-to
           %input{:type => "button", :value => "Add to cart"}/

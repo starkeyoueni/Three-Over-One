@@ -1,9 +1,9 @@
 .inner.product-row.clearfloat
   %a.product-thumb{:data => product.handle, :href => "#"}
-    - if product.images.size > 0 && product.images.first.src
-      %img{:alt => product.title, :src => product.images.first.thumb}            
+    - if product.images.size > 0 && product.images.first.large
+      %img{:alt => product.title, :src => product.images.first.large}            
       %span
-        = product.images.first.thumb
+        = product.images.first.large
         
 .details.clearfix
   %a{:data => product.handle, :href => "#"}
