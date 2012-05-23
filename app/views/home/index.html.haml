@@ -1,36 +1,44 @@
-%header.jumbotron
+- if settings.homepage_banner == "slider" or settings.homepage_banner == "slideshow"
+.slider-container
+  - if settings.homepage_banner == "slider"
+    #content-scroll.scroll
+      #content-slide
+      = for product in collections[settings.slider_collection].products
+        = render partial: 'shared/product-slide', locals: {collection: settings.slider_collection}
+        .slider
+          %span.ui-slider-handle &amp;nbsp;
+  - elsif settings.homepage_banner == "slideshow"
+        %ul#slider
+          %li.slide
+            %img.slide-img{"data-url" => "{{ settings.image_1_link }}", :src => "{{ 'slideshow_1.jpg' | asset_url }}"}/
+          %li.slide
+            %img.slide-img{"data-url" => "{{ settings.image_2_link }}", :src => "{{ 'slideshow_2.jpg' | asset_url }}"}/
+          %li.slide
+            %img.slide-img{"data-url" => "{{ settings.image_3_link }}", :src => "{{ 'slideshow_3.jpg' | asset_url }}"}/
+          %li.slide
+            %img.slide-img{"data-url" => "{{ settings.image_4_link }}", :src => "{{ 'slideshow_4.jpg' | asset_url }}"}/
+          %li.slide
+            %img.slide-img{"data-url" => "{{ settings.image_5_link }}", :src => "{{ 'slideshow_5.jpg' | asset_url }}"}/
+        #slider-empty{:style => "display:none; padding:120px 0; text-align:center;"}
+          %h4 Slider is empty
+          If you are the shop owner,
+          %a{:href => "/admin/themes/current/settings"} click here
+          to upload images to this slideshow.
+#front-page-slides
+  %ul#slide-show-nav.cf
+    %li ..
+    %li ..
+    %li ..
+  #slide-show
+    %ul.cf
+      %li
+        .slide-content
+        %img{:src => "http://upload.wikimedia.org/wikipedia/commons/a/a1/F-117_Nighthawk_Front.jpg"}/
+      %li
+        .slide-content
+        %img{:src => "http://4.bp.blogspot.com/-xffpMj8mGgE/TqkayKGMv5I/AAAAAAAAhTU/P8wWJ78c3iI/s1600/f-16.jpg"}/
+      %li
+        .slide-content
+        %img{:src => "http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Two_F-22A_Raptor_in_column_flight_-_(Noise_reduced).jpg/750px-Two_F-22A_Raptor_in_column_flight_-_(Noise_reduced).jpg"}/
+#front-page
   .inner
-    .container
-      %h1 three-over-one
-%h2 Products
-#accordion.accordion
-  - if @products.blank?
-    .accordion-group
-      .accordion-heading
-        %em There are no products in the store.
-  - else
-    - @products.each_with_index do |product, index|
-      .accordion-group
-        .accordion-heading
-          %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "##{product.id}"}
-            = product.title
-            / %span.pull-right.muted
-            /   = product.price_range
-            /   = current_shop.shop.currency
-        .accordion-body.collapse.if.index.1{:class => "<haml:silent> == </haml:silent><haml:block>in</haml:block>", :id => product.id}
-          .accordion-inner
-            / - if !product.images.empty?
-            /   .polaroid
-            /     = link_to image_tag(product.images.first.medium), '#modal-'+product.id.to_s, :'data-toggle' => 'modal'
-            / %p
-            /   %strong Type:
-            /   = product.product_type
-            %p= raw(product.body_html)
-            %br/
-      .modal.hide.fade{:id => "modal-#{product.id}", :style => "display:none;"}
-        .modal-header
-          %a.close{"data-dismiss" => "modal"} ×
-          %h3= product.title
-        .modal-body
-          / - if !product.images.empty?
-          /   = image_tag product.images.first.large
