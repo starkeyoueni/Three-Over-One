@@ -24,7 +24,7 @@ class Image
       "id"          => object.id,
       "position"    => object.position,
       "updated_at"  => object.updated_at,
-      "thumb"         => object.large,
+      "thumb"       => object.large,
       "src"         => object.src
     }
   end

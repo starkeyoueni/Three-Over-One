@@ -16,21 +16,18 @@
             %a{:href => = blog.previous_article, :class => "previous_product"}
               %span.upper Previous
               %span.lower Article
-        - end if
         - if blog.next_article
           .fr
         %a{:href => = blog.next_article, :class => "next_product"}
           %span.upper Next
           %span.lower Article
-        - end if
     #comments.comments
       - if article.comments.size > 0
         .more-info.clearfix
           .upper Article
           .lower Comments
       - for comment in article.comments
-      <div id="comment-{{ comment.id }}" class="comment clearfix">
-        %div{:id => "comment-= comment.id", :class => "comment clearfix"}
+        %div{:id => "comment-#{comment.id}", :class => "comment clearfix"}
         .clearfix
           .author
             %h5 = comment.author
@@ -39,8 +36,6 @@
               %img{:src => "", :class => "gravatar", :alt => "= comment.author" }
           .content
           = comment.content
-      - end for
-      - end if
       .comment_form
         - form article
           .more-info.clearfix
@@ -51,12 +46,8 @@
               .notice.success Successfully posted your comment. It will have to be approved by the blog owner first before showing up.
             - else
               .notice.success Successfully posted your comment.
-            - end if
-          - end if
-
         - if form.errors
           .notice.error Not all the fields have been filled out correctly
-        - end if
 
         %input{:type => "text", :id => "comment_author", :name => "comment[author]", :size => "40", :value => "Your name", :class => "replace" - if form.errors contains 'author' :class => "input-error" - end if}
         %input{:type => "text", :id => "comment_email", :name => "comment[email]", :size =>"40", :value => "Your email", :class => "replace" - if form.errors contains 'email' :class="input-error" - end if}
@@ -66,8 +57,5 @@
 
         - if blog.moderated?
           .notice Comments have to be approved before showing up
-        - end if
 
-        - end form
-- end if
-- include 'featured-products'
+= render :partial => 'shared/featured-products'
