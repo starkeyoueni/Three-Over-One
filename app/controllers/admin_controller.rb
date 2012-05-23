@@ -10,4 +10,12 @@ class AdminController < ApplicationController
     Product.import_from_shopify
     redirect_to products_path
   end
+  
+  def get_products_json
+    data = Curl::Easy.http_get("http://three-over-one.myshopify.com/admin/products.json")
+    @products_json = data.body_str
+    file = File.open("data/products.json", "w")
+    file.write(@products_json)
+    file.close
+  end
 end
