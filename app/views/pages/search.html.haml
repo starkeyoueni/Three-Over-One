@@ -1,0 +1,48 @@
+#search.clearfix
+  - if search.performed 
+  .main
+    - paginate search.results by settings.pagination_limit
+    .more-info.clearfix
+      .fl
+        %span.upper Search Results
+        %span.lower= search.results_count
+          = search.results_count | pluralize: 'Match', 'Matches'
+      .fr
+        %span.upper &nbsp;
+        %span.lower
+          - render partial: 'shared/pagination'
+
+    - if search.terms == ""
+      %p Your search query was empty.
+    - else
+      - if search.results == empty
+        .empty
+          Your search for
+          = search.terms | escape
+          did not yield any results  
+      - else
+        .results
+        - for item in search.results 
+          .item.clearfix
+          .thumbnail
+          %a{href: item.url}= item.featured_image.src | product_img_url: 'thumb' | img_tag: item.featured_image.alt
+        .content
+          %h4= item.title | link_to: item.url
+          = item.content | strip_html | truncatewords: 40 | highlight: search.terms
+    
+    .more-info.clearfix
+      .fr
+        %span.upper &nbsp;
+        %span.lower
+          - render partial: 'shared/pagination'
+
+  - render partial: "shared/sidebar"
+
+  - else 
+
+  #not_found
+    %h2 Search our shop
+    %form#search_form.searchform{name: "search", action: "/search"}
+      %input.replace{type: "text", name:"q", value:"Search..."}
+
+- render partial: 'shared/featured-products' 

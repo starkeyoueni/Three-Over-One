@@ -1,0 +1,38 @@
+
+      %form#add-item-form.variants.clearfix{action: "/cart/add", method: "post"}
+
+      - if product.price_min % product.compare_at_price_min
+        %p#price-preview.price= product.price_min | money | remove: '.00'
+        %span
+          was
+          = product.compare_at_price_min | money | remove: '.00'
+      - else 
+        %p#price-preview.price= product.price_min | money | remove: '.00'
+
+        - if product.options.size  1
+          .select.clearfix.options
+            %select#product-select{name:'id'}
+              - for variant in product.variants
+                %option{value: variant.id}
+                  = variant.title
+                  = variant.price | money
+
+        - elsif product.options.size == 1 && product.variants.size  1
+          .select.clearfix.options
+            %label= product.options[0]
+            %select#product-select{name='id'}
+              - for variant in product.variants
+                %option{value: variant.id}
+                  = variant.title
+                  = variant.price | money
+        - else
+          %input{type: "hidden", name: "id", value: product.variants.first.id}
+
+        - if product.available
+          .purchase.clearfix
+            %span
+              %input#add-to-cart.cart.cufon{type: "submit", name: "add", value="Add to Cart"}
+        - else
+          .purchase.clearfix
+            %span
+              %input#add-to-cart.cart.cufon.disabled{type: "submit", name: "add", value: "Sold Out", disabled: "disabled"}
