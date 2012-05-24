@@ -1,0 +1,49 @@
+//= require_self
+//= require twitter/bootstrap
+//= require bootstrap_and_overrides
+//= require imports
+//= require three-over-one
+
+/*
+  Slides container
+  Important:
+  Set the width of your slides container
+  Set to display none, prevents content flash
+*/
+.slides_container {
+  margin-top:20px;
+  width: 100%;
+  display:none;
+}
+
+/*
+  Each slide
+  Important:
+  Set the width of your slides
+  If height not specified height will be set by the slide content
+  Set to display block
+*/
+.slides_container div {
+  width: 100%;
+  height:600px;
+  display:block;
+  text-align: center;
+}
+		
+/*
+  Optional:
+  Reset list default style
+*/
+.pagination {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+/*
+  Optional:
+  Show the current slide in the pagination
+*/
+.pagination .current a {
+  color:red;
+}
