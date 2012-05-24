@@ -9,6 +9,9 @@ $(document).ready(function() {
   $(".rslides").responsiveSlides({
     auto: true,
     speed: 600,
-    timeout: 5000
+    timeout: 5000,
+    nav: true,
+    prevText: "",
+    nextText: ""
   });
 });
