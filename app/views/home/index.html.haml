@@ -5,7 +5,7 @@
         %div= image_tag slide.images.first.src
   
   %a.prev{:href => "#"}
-    %img{:alt => "Arrow Prev", :height => "43", :src => "img/arrow-prev.png", :width => "24"}/
+    = image_tag "arrow-prev.png", alt: "Previous"
   %a.next{:href => "#"}
-    %img{:alt => "Arrow Next", :height => "43", :src => "img/arrow-next.png", :width => "24"}/
-
+    = image_tag "arrow-next.png", alt: "Next"
+  
