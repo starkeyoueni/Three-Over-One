@@ -3,17 +3,12 @@
 //= require twitter/bootstrap
 //= require pages
 //= require products
-//= require slides.jquery
+//= require responsiveslides
 
 $(document).ready(function() {
-  var options = {
-		preload: true,
-		generateNextPrev: false,
-    pagination: false,
-    generatePagination: false,
-    autoHeight: true,
-    autoHeightSpeed: 350
-	};
-  console.log(options);
-	$('#slides').slides(options);
+  $(".rslides").responsiveSlides({
+    auto: true,
+    speed: 600,
+    timeout: 5000
+  });
 });

@@ -21,6 +21,9 @@ html, body {
 
 .content {
   padding-top: 59px;
+  margin-bottom: -60px;
+  min-height: 100%;
+  position: relative;
 }
 
 .column.three {
@@ -789,11 +792,10 @@ section .row {
 
 
 footer {
-  position: absolute;
   bottom: 0px;
   height: 60px;
   width: 100%;
-  background: #cccccc;
+  background: #F5EFE5;
   .inner {
     margin-top: 0px;
     margin-bottom: 0px;

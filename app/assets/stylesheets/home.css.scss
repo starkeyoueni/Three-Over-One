@@ -4,46 +4,48 @@
 //= require imports
 //= require three-over-one
 
-/*
-  Slides container
-  Important:
-  Set the width of your slides container
-  Set to display none, prevents content flash
-*/
-.slides_container {
-  margin-top:20px;
-  width: 100%;
-  display:none;
-}
 
-/*
-  Each slide
-  Important:
-  Set the width of your slides
-  If height not specified height will be set by the slide content
-  Set to display block
-*/
-.slides_container div {
-  width: 100%;
-  height:600px;
-  display:block;
-  text-align: center;
-}
-		
-/*
-  Optional:
-  Reset list default style
-*/
-.pagination {
-  list-style:none;
-  margin:0;
-  padding:0;
-}
+#slides {
+  .rslides {
+    position: relative;
+    list-style: none;
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
 
-/*
-  Optional:
-  Show the current slide in the pagination
-*/
-.pagination .current a {
-  color:red;
+  .rslides li {
+    position: absolute;
+    display: none;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .rslides li:first-child {
+    position: relative;
+    display: block;
+    float: left;
+  }
+
+  .rslides img {
+    display: block;
+    height: 650px;
+    margin: auto;
+    width: auto;
+    border: 0;
+  }
+  a {
+    position: fixed;
+    top: 50%;
+    margin-top: -100px;
+    z-index: 998;
+    &.prev {
+      left: 25px;
+    }
+    &.next {
+      right: 25px;
+    }
+  }
 }
