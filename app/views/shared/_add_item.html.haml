@@ -1,0 +1,39 @@
+%a{href: "http://your.shopify.url/cart/add"}
+  BUY NOW
+
+%form#add-item-form.variants.clearfix{action: "/cart/add", method: "post"}
+  - if product.price_min % product.compare_at_price_min
+    %p#price-preview.price= money product.price_min
+    %span
+      was
+      = money product.compare_at_price_min
+  - else 
+    %p#price-preview.price= money product.price_min
+
+    - if product.options.size  1
+      .select.clearfix.options
+        %select#product-select{name:'id'}
+          - for variant in product.variants
+            %option{value: variant.id}
+              = variant.title
+              = money variant.price
+
+    - elsif product.options.size == 1 && product.variants.size  1
+      .select.clearfix.options
+        %label= product.options[0]
+        %select#product-select{name='id'}
+          - for variant in product.variants
+            %option{value: variant.id}
+              = variant.title
+              = money variant.price
+    - else
+      %input{type: "hidden", name: "id", value: product.variants.first.id}
+
+    - if product.available
+      .purchase.clearfix
+        %span
+          %input#add-to-cart.cart.cufon{type: "submit", name: "add", value="Add to Cart"}
+    - else
+      .purchase.clearfix
+        %span
+          %input#add-to-cart.cart.cufon.disabled{type: "submit", name: "add", value: "Sold Out", disabled: "disabled"}

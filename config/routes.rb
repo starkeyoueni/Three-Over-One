@@ -1,4 +1,10 @@
 Too2::Application.routes.draw do
+  resources :cart do
+    collection do
+      post :add
+    end
+  end
+
   resources :outfits
 
   resources :admin do

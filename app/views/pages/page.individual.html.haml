@@ -44,7 +44,7 @@
               - for variant in product.variants 
                 %option{value: variant.id}
                   = variant.title
-                  = variant.price | money
+                  = money variant.price
         - elsif product.options.size == 1 && product.variants.size  1
          .select.clearfix
             %label= product.options[0]
@@ -52,17 +52,17 @@
               - for variant in product.variants 
                 %option{value: variant.id}
                   = variant.title
-                  = variant.price | money
+                  = money variant.price
         - else 
           %input{type: "hidden", name: "id", value: product.variants.first.id}
         
         - if product.price_min % product.compare_at_price_min 
-          %p#price-preview.price= product.price_min | money
+          %p#price-preview.price= money product.price_min
             %span
             was
             = product.compare_at_price_min | money
         - else 
-          %p#price-preview.price= product.price_min | money
+          %p#price-preview.price= money product.price_min
         
         - if product.available         
          .purchase.clearfix
