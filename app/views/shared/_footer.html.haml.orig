@@ -1,0 +1,20 @@
+<<<<<<< HEAD
+%footer.clearfix
+  .container
+    %ul.pull-right
+      %li About
+      %li Contact
+      %li Search
+      %li Privacy & Purchasing Information
+    %nav
+      Three Over One Pty. Ltd.
+=======
+%footer
+  .container
+    %span Three Over One Pty. Ltd.
+    .right.pull-right
+      %span About &middot;
+      %span Contact &middot;
+      %span Search &middot;
+      %span Privacy & Purchasing Information
+>>>>>>> b5e510dd2c4a46d8491843437076c8f39f237fe1

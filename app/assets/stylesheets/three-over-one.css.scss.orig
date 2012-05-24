@@ -22,6 +22,9 @@ html, body {
 
 .content {
   padding-top: 59px;
+  margin-bottom: -60px;
+  min-height: 100%;
+  position: relative;
 }
 
 .column.three {
@@ -790,10 +793,21 @@ section .row {
 }
 
 footer {
+<<<<<<< HEAD
+  bottom: 0px;
+  height: 60px;
+  width: 100%;
+  background: #F5EFE5;
+  .inner {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+=======
   background: $background_colour;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 17px 0 18px 0;
+>>>>>>> b5e510dd2c4a46d8491843437076c8f39f237fe1
 }

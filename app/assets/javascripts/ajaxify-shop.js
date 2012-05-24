@@ -134,7 +134,7 @@ Shopify.onCartUpdate = function(cart, form) {
       jQ("#add-to-cart").val("Add to Cart").animate({
         
         color: '#ffffff',
-        backgroundColor: '#F5EFE5'
+        backgroundColor: '$background_colour'
         
       }, 400);
     }, 2200);
