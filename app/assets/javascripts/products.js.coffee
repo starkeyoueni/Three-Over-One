@@ -18,6 +18,21 @@ $(document).ready ->
     f.submit()
     return false
     
+  productRow = $("#products .row")
+  
+  showProduct = (e) ->
+    e.preventDefault()
+    productRow.removeClass "open"
+    $(@).addClass "open"
+    $(@).child.style.display = 'block'
+    return false
+    
+  productRow.click showProduct
+    
+    
+#   // if a variable is to be accessed outside of this scope, use ->
+#   window.variable = whatever
+#   
 #   $(".#{product.handle}").click (e) ->
 #     e.preventDefault()
 #     $.get "/products/#{product.handle}.js", (data) ->

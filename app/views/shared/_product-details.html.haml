@@ -1,6 +1,6 @@
 .product-detail.clearfloat
   .inner.clearfloat
-    .product-detail-inner.left.cleafloat.type1
+    .product-detail-inner.left.clearfloat.type1
       .imageInner.clearfloat
         .imageContainer
           - if product.images.size > 0
@@ -15,15 +15,16 @@
 
     .product-detail-inner.right.clearfloat
       %form
-        %h1.title .
+        %h1.title= product.title
         %p.description
           = raw product.descrip
+        #purchase  
           / TODO: Need to use the variant for the price.
           %span.price= money variant.price, true
           = render partial: 'shared/size_selector', locals: {product: product}
           = render partial: 'shared/colour_selector', locals: {product: product}
+          .add-to
+            %input{type: "button", value: "Add to cart", prodvar: variant.id}
         %a.sizechart{:href => "#"} Size information
-        .add-to
-          %input{type: "button", value: "Add to cart", prodvar: variant.id}
       / #related-items
       /   = render :partial => 'shared/related-products'

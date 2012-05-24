@@ -4,4 +4,6 @@
  *= require bootstrap_and_overrides
  *= require imports
  *= require three-over-one
+ *= require home
+ *= require products
 */

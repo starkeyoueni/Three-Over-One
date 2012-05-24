@@ -1,9 +1,10 @@
-%input{:name => "colour", :type => "hidden"}/
-.select-box{:for => "colour"}
-  %span C
-  .options.colour.clearfloat
-    %ul.clearfloat
-      - if product.colours
-        - product.colours.each do |colour|
-          %li= colour
+.select.color
+  %input{:name => "colour", :type => "hidden"}/
+  .select-box{:for => "size"}
+    %span C
+    .options.colour
+      %ul.clearfloat
+        - if product.colours
+          - product.colours.each do |colour|
+            %li= colour
       

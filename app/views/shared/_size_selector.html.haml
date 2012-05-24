@@ -1,8 +1,8 @@
-.select.clearfloat
+.select.size
   %input{:name => "size", :type => "hidden"}/
   .select-box{:for => "size"}
     %span S
-    .options.size.clearfloat
+    .options.size
       %ul.clearfloat
         - if product.sizes
           - product.sizes.each do |prod_size|
