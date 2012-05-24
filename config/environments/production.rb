@@ -3,7 +3,12 @@ Too2::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
   config.serve_static_assets = false
-  config.assets.compress = true
+  
+  # TODO Take these out for production!!!!!
+  config.assets.compress = false
+  config.assets.debug = true
+  
+  # config.assets.compress = true
   config.assets.compile = true
   config.assets.digest = true
   # Specifies the header that your server uses for sending files
