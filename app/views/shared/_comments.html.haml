@@ -1,0 +1,52 @@
+
+- if blog.comments_enabled?
+  .sidebar
+    #product
+      .more-info.clearfix
+        - if blog.previous_article
+          .fl
+            %a.previous_product{href: blog.previous_article}
+              %span.upper Previous
+              %span.lower Article
+        - if blog.next_article
+          .fr
+        %a.next_product{href: blog.next_article}
+          %span.upper Next
+          %span.lower Article
+    #comments.comments
+      - if article.comments.size > 0
+        .more-info.clearfix
+          .upper Article
+          .lower Comments
+      - for comment in article.comments
+        .comment.clearfix{id: "comment-#{comment.id}"}
+        .clearfix
+          .author
+            %h5 = comment.author
+          .gravatar
+            %span.email{style: "display:none;"} = comment.email
+              %img.gravatar{src: "", alt: "= comment.author" }
+          .content
+          = comment.content
+      .comment_form
+        - form article
+          .more-info.clearfix
+            %span.upper Comment
+            %span.lower on this article
+          - if form.posted_successfully?
+            - if blog.moderated?
+              .notice.success Successfully posted your comment. It will have to be approved by the blog owner first before showing up.
+            - else
+              .notice.success Successfully posted your comment.
+
+        - if form.errors
+          .notice.error Not all the fields have been filled out correctly
+
+        %input#comment_author.replace{type: "text", name: "comment[author]", size: "40", value: "Your name", - if form.errors contains 'author' class: "input-error" }
+        %input#comment_email.replace{type: "text", name: "comment[email]", size: "40", value: "Your email", - if form.errors contains 'email' class:"input-error"}
+        %textarea#comment_body.replace{name: "comment[body]", cols: "40", rows: "5", - if form.errors contains 'body' class: "input-error"}= form.body
+
+        %input#comment-submit{type: "submit", value: "Post comment"}
+
+        - if blog.moderated?
+          .notice Comments have to be approved before showing up

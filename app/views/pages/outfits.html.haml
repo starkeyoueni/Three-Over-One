@@ -1,0 +1,19 @@
+- collection = collections.outfits 
+
+- repeatCount = 0 
+
+- for product in collection.products 
+    
+    - if repeatCount == 0 
+      .row.clearfloat
+        - render partial: 'shared/outfit-products' 
+        .inner.product-row.clearfloat
+        
+    - if product.featured_image.src 
+      %a.product-thumb{href: "#", data: product.handle}
+        %img{src: product.featured_image.thumb, alt: item.product.featured_image.url}
+        
+    - repeatCount = repeatCount | plus: 1 
+        
+    - if repeatCount == 3 
+      - repeatCount = 0 

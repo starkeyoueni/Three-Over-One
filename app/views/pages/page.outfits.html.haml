@@ -1,0 +1,19 @@
+- collection = collections.outfits
+
+- repeatCount = 0 
+
+- for product in collection.products 
+    
+    - if repeatCount == 0 
+      .row.clearfloat
+        - render patrial: 'outfit-products' 
+        .inner.product-row.clearfloat
+
+    - if product.featured_image.thumb 
+      %a.product-thumb{href: "#", data: product.handle}
+        %img{src: product.featured_image.thumb | product_img_url: 'large'}
+        
+    - repeatCount = repeatCount | plus: 1 
+
+    - if repeatCount == 3
+      - assign repeatCount = 0

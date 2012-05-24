@@ -1,0 +1,66 @@
+#product.clearfix{class: product.handle} - if product.images.size == 1 one_image
+  
+  .product_body.clearfix
+    .images
+      .featured
+        .image
+          %a#placeholder.cloud-zoom{href: product.featured_image.thumb | product_img_url: 'original', rel:"position: 'inside', showTitle: 'false'"}
+            %img{src: product.featured_image.src | product_img_url: 'grande', alt: product.featured_image.alt | escape }
+
+      - if product.images.size  1 
+        .thumbs.clearfix
+          - for image in product.images 
+            .image
+              %a.cloud-zoom-gallery{href: image.src | product_img_url: 'original', rel: "useZoom: 'placeholder', smallImage: '= #{image.src} | #{product_img_url}: 'grande' ', tint: '#ffffff'"}
+                %img{src: image.src | product_img_url: 'small', alt: image.alt | escape}
+
+    .content
+      - if collection 
+        .more-info.clearfix
+          - if collection.previous_product
+            .fl
+              %a.previous_product{href: collection.previous_product}
+                %span.upper Previous
+                %span.lower Product
+          - if collection.next_product 
+            .fr
+              %a.next_product{href: collection.next_product}
+                %span.upper Next
+                %span.lower Product
+      
+      %h3.title: product.title
+
+      - if settings.product_description_position == "top"
+        .description= product.description 
+        
+        = render :partial => 'shared/add_item'
+      
+      - if settings.product_description_position == "bottom"
+        .description= product.description 
+        
+        .details
+          %span.type
+            type:
+            = product.type | link_to_type
+          %span.vendor
+            by:
+            = product.vendor | link_to_vendor
+    
+	    #related-items
+	      - render partial: 'shared/related-products'
+
+		%div{style: "clear:both;"}
+
+  - if collection && collection.products.size  1
+    .more-info
+      %span.upper More Products
+      %span.lower From This Collection
+
+    .slider-container
+      #content-scroll.scroll
+        #content-slide
+          - for product in collection.products
+            - render partial: 'shared/product-slide-small'
+
+      .slider
+        %span.ui-slider-handle &nbsp;
