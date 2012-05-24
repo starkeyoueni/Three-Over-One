@@ -1,8 +1,7 @@
 #slides
   %ul.rslides
     - for slide in @slides
-      - if slide.images.size > 0
-        %li= image_tag slide.images.first.src
+      %div= image_tag "slides/#{slide}"
   
   %a.prev{:href => "#"}
     = image_tag "arrow-prev.png", alt: "Previous"

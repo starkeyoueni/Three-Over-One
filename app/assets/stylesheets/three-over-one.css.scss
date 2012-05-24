@@ -1,4 +1,5 @@
 $background_colour: #F5EFE5;
+$line_color:        #000;
 
 html, body {
   margin: 0px;
@@ -70,7 +71,7 @@ header {
 
   .container {
     nav {
-      border-bottom: 1px solid #000;
+      border-bottom: 1px solid $line_color;
       background: $background_colour;
       position: relative;
       z-index: 999999999;
@@ -534,7 +535,7 @@ section .row {
     float: left;
     display: block;
     width: 278px;
-    border: 1px solid #000;
+    border: 1px solid $line_color;
     margin: 20px;
     position: relative;
     &.showing:after {
@@ -546,7 +547,7 @@ section .row {
       width: 0px;
       height: 0px;
       border-left: 40px solid transparent;
-      border-right: 40px solid #000;
+      border-right: 40px solid $line_color;
       border-bottom: 40px solid transparent;
       border-top: 0px solid transparent;
     }
@@ -580,7 +581,7 @@ section .row {
     .cart-item {
       display: inline-block;
       background: #fff;
-      border: 1px solid #000;
+      border: 1px solid $line_color;
       width: 208px;
       height: 318px;
       margin: 0px 0px 0px 20px;

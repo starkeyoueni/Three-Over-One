@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   
   def index
-    @slides = Product.limit(50)
+    @slides = Slide.all
   end
   
 end
