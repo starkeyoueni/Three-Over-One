@@ -33,6 +33,56 @@
  {% endif %}
  -->
  
+ <style>
+    #front-page-slides {
+         width: 100%;
+         height: 640px;
+         background: #eee;
+         position: relative;
+    }
+    
+    #front-page-slides ul {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    #slide-show-nav {
+        width: 400px;
+        height: 24px;
+        background: #333;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin: auto !important;
+        z-index: 2;
+    }
+    
+    #slide-show-nav li { 
+        float: left;
+    }
+    
+    #slide-show {
+         width: 100%;
+         height: 100%;
+         background: #222;
+         overflow: hidden;
+         position: relative;
+    }
+    
+    #slide-show ul {
+        position: absolute;
+        width: 4000px;
+        height: 100%;
+        background: #aaa;
+    }
+    
+    #slide-show ul li {
+        float: left;
+    }
+ </style>
+ 
  <div id="front-page-slides">
     <ul id="slide-show-nav" class="cf">
         <li>..</li>
