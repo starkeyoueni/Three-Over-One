@@ -1,7 +1,7 @@
 - @products.each do |product|
   .row.clearfloat
     = render :partial => 'shared/product-thumbnail', :locals => {:product => product}
-    = render :partial => 'shared/product-details',   :locals => {:product => product}
+    = render :partial => 'shared/product-details',   :locals => {:product => product, variant: product.variants.first}
 
 
     / #collection{:class => "#{collection.handle} clearfix"}

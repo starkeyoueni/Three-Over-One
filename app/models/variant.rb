@@ -8,20 +8,6 @@ class Variant
   field :option1,       :type => String
   field :option2,       :type => String
   field :option3,       :type => String
-  
-  def deserialize(object)
-    variant = Variant.new
-    variant.created_at = object["created_at"]
-    variant.updated_at = object["updated_at"]
-    variant.id         = object["id"]
-    variant.position   = object["position"]
-    variant.sku        = object["sku"]
-    variant.price      = object["price"]
-    variant.option1    = object["option1"]
-    variant.option2    = object["option2"]
-    variant.option3    = object["option3"]
-    variant
-  end
 
   def serialize(object)
     {

@@ -6,6 +6,8 @@ class Image
   field :position,    :type => Integer
   field :src,         :type => String
   field :thumb,       :type => String
+  field :small,       :type => String
+  field :large,       :type => String
 
   def self.from_shopify(object)
     image = Image.new
@@ -14,7 +16,9 @@ class Image
     image.position   = object.position
     image.updated_at = object.updated_at
     image.src        = object.src
-    image.thumb      = object.large
+    image.small      = object.small
+    image.large      = object.large
+    image.thumb      = object.thumb
     image
   end
 
@@ -24,8 +28,10 @@ class Image
       "id"          => object.id,
       "position"    => object.position,
       "updated_at"  => object.updated_at,
-      "thumb"       => object.large,
-      "src"         => object.src
+      "src"         => object.src,
+      "thumb"       => object.thumb,
+      "small"       => object.small,
+      "large"       => object.large
     }
   end
 end
