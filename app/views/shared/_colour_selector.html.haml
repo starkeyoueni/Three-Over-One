@@ -3,6 +3,7 @@
   %span C
   .options.colour.clearfloat
     %ul.clearfloat
-      - @colours.each do |colour|
-        %li= colour
+      - if product.colours
+        - product.colours.each do |colour|
+          %li= colour
       

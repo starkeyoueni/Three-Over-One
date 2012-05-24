@@ -4,5 +4,6 @@
     %span S
     .options.size.clearfloat
       %ul.clearfloat
-        - sizes.each do |prod_size|
-          %li= prod_size
+        - if product.sizes
+          - product.sizes.each do |prod_size|
+            %li= prod_size
