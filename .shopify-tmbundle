@@ -13,9 +13,3 @@ use="default"
 api_key="caea2e4afd859fd6abc01718d23b4b4d"
 password="641a2f28bd86346888f918d791baacb1"
 store="youeni-foodstore.myshopify.com"
-
-; Three Over One
-;[live]
-;api_key="89e686618d3d872d7c9bf389dc3a2fe5"
-;password="7ef04f19f1d3f30f0064dbfa61753436"
-;store="three-over-one.myshopify.com"
