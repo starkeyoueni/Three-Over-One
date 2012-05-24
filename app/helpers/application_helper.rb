@@ -10,6 +10,15 @@ module ApplicationHelper
   end
   
   def cart_total
-    "$#{cart.total_price}"
+    money cart.total_price
   end
+  
+  def money(price, cents=false)
+    if cents
+      return number_to_currency price
+    else
+      return number_to_currency price, precision: 0, separator: ","
+    end
+  end
+  
 end

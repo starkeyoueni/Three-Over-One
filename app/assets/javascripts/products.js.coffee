@@ -1,33 +1,52 @@
 $(document).ready ->
-  $(".#{product.handle}").click (e) ->
+  console.log "TEST"
+  
+  $("input[prodvar]").click (e) ->
     e.preventDefault()
-    $.get "/products/#{product.handle}.js", (data) ->
-      console.log data
-
-
-selectCallback = (variant, selector) ->
-  if variant and variant.available is true
-    $("#add-to-cart").removeClass("disabled").removeAttr("disabled").val "Add to Cart"
-    if variant.price < variant.compare_at_price
-      $("#price-preview").html Shopify.formatMoney(variant.price, "{{shop.money_format}}") + " <span>was " + Shopify.formatMoney(variant.compare_at_price, "{{shop.money_format}}") + "</span>"
-    else
-      $("#price-preview").html Shopify.formatMoney(variant.price, "{{shop.money_format}}")
-  else
-    message = (if variant then "Sold Out" else "Unavailable")
-    $("#add-to-cart").addClass("disabled").attr("disabled", "disabled").val "Sold Out"
-    $("#product .variants .price").text message
-
-#
-#  Remove all occurrences of a token in a string
-#    s  string to be processed
-#    t  token to be removed
-#  returns new string
-remove = (s, t) ->
-  i = s.indexOf(t)
-  r = ""
-  return s  if i is -1
-  r += s.substring(0, i) + remove(s.substring(i + t.length), t)
-  r
+    variant_id = this.getAttribute('prodvar')
+    console.log "variant_id = #{variant_id}"
+    f = document.createElement('form')
+    f.style.display = 'none'
+    this.parentNode.appendChild(f)
+    f.method = 'POST'
+    f.action = 'http://three-over-one.myshopify.com/cart/add'
+    v = document.createElement('input')
+    v.setAttribute('type', 'hidden')
+    v.setAttribute('name', 'id')
+    v.setAttribute('value', variant_id)
+    f.appendChild(v)
+    f.submit()
+    return false
+    
+#   $(".#{product.handle}").click (e) ->
+#     e.preventDefault()
+#     $.get "/products/#{product.handle}.js", (data) ->
+#       console.log data
+# 
+# 
+# selectCallback = (variant, selector) ->
+#   if variant and variant.available is true
+#     $("#add-to-cart").removeClass("disabled").removeAttr("disabled").val "Add to Cart"
+#     if variant.price < variant.compare_at_price
+#       $("#price-preview").html Shopify.formatMoney(variant.price, "{{shop.money_format}}") + " <span>was " + Shopify.formatMoney(variant.compare_at_price, "{{shop.money_format}}") + "</span>"
+#     else
+#       $("#price-preview").html Shopify.formatMoney(variant.price, "{{shop.money_format}}")
+#   else
+#     message = (if variant then "Sold Out" else "Unavailable")
+#     $("#add-to-cart").addClass("disabled").attr("disabled", "disabled").val "Sold Out"
+#     $("#product .variants .price").text message
+# 
+# #
+# #  Remove all occurrences of a token in a string
+# #    s  string to be processed
+# #    t  token to be removed
+# #  returns new string
+# remove = (s, t) ->
+#   i = s.indexOf(t)
+#   r = ""
+#   return s  if i is -1
+#   r += s.substring(0, i) + remove(s.substring(i + t.length), t)
+#   r
 
 
 # # initialize multi selector for product
@@ -38,7 +57,9 @@ remove = (s, t) ->
 #     var matches = 0;
 #     var limit = 3;
 #     
-#     for (var i = (productHandles.length - 1); i >= 0; i--) {
+#     for (var i = (productHandles.length - 1);
+# i >= 0;
+# i--) {
 #       if(productHandles[i] != "{{ product.handle }}" && productHandles[i] != "" && (matches < limit)){
 #         Shopify.getProduct(productHandles[i]);
 #         matches++;

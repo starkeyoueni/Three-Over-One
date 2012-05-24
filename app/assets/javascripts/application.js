@@ -2,3 +2,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require pages
+//= require products
+

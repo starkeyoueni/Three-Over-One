@@ -17,7 +17,6 @@ class Variant
       "position"    => object.position,
       "sku"         => object.sku,
       "price"       => object.price,
-      "sku"         => object.sku,
       "option1"     => object.option1,
       "option2"     => object.option2,
       "option3"     => object.option3
@@ -32,7 +31,6 @@ class Variant
     variant.position   =  shopify_variant.position
     variant.sku        =  shopify_variant.sku
     variant.price      =  shopify_variant.price
-    variant.sku        =  shopify_variant.sku
     variant.option1    =  shopify_variant.option1
     variant.option2    =  shopify_variant.option2
     variant.option3    =  shopify_variant.option3
