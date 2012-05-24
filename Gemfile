@@ -11,6 +11,7 @@ gem 'awesome_print'
 gem 'heroku'
 gem "haml-rails"
 gem "shopify_app"
+gem "shopify_api", '2.3.0'
 gem "mongoid"
 gem "bson_ext"
 gem "haml-rails"
