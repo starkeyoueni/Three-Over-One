@@ -1,10 +1,4 @@
 #slides
   %ul.rslides
     - for slide in @slides
-      %div= image_tag "slides/#{slide}"
-  
-  %a.prev{:href => "#"}
-    = image_tag "arrow-prev.png", alt: "Previous"
-  %a.next{:href => "#"}
-    = image_tag "arrow-next.png", alt: "Next"
-  
+      %li= image_tag "slides/#{slide}"
