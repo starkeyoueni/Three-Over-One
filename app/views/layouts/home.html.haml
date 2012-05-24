@@ -2,8 +2,8 @@
 %html{:lang => "en"}
   %head
     %title Three-Over-One
-    = stylesheet_link_tag 'application'
-    = javascript_include_tag 'application'
+    = stylesheet_link_tag 'home'
+    = javascript_include_tag 'home'
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans", :rel => "stylesheet", :type => "text/css"}
@@ -12,6 +12,6 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   %body
     = render partial: 'shared/navbar'
-    .container
+    .content
       = yield
     = render partial: 'shared/footer'

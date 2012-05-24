@@ -1,5 +1,5 @@
 %header
-  .inner.clearfloat
+  .container.clearfloat
     %nav.clearfloat
       %span.three.column.logo= link_to "THREE OVER ONE", root_path
       %span.three.column.section.s2 HOME
@@ -10,59 +10,3 @@
         / collections_path
         &middot;
         .nav-items= link_to "BLOG", ""
-        / blog_pages_path
-  /     
-  / #shop-nav-down
-  /   #shop-nav-main
-  /     %ul
-  /       - @shop.categories.each do |category|
-  /         %li= category_link(category)
-          
-/ %nav.main
-/   %ul.clearfix
-/     - for link in linklists[settings.main_linklist].links
-/       - if linklists[link.handle] == empty
-/         %li
-/           <a href="#{link.url}"
-/           - if link.active
-/             class="current"
-/             - endif
-/             >
-/             %span= link.title
-/       - else
-/         %li.dropdown
-/           <a href="#{link.url}"
-/           - if link.active
-/             class="current"
-/             - endif
-/             >
-/             %span= link.title
-/             %ul.dropdown
-/               - for link in linklists[link.handle].links
-/                 %li
-/                   <a href="#{link.url}"
-/                   - if link.active
-/                     class="current"
-/                     - endif
-/                     >#{link.title}
-/                 - endfor
-/         - endif
-/         - endfor
-/         %li.fr.cy
-/           %form#search_form.searchform{:action => "/search", :name => "search"}
-/             - if template == "search" and search.performed and search.terms != ""
-/               %input.replace{:name => "q", :type => "text", :value => search.terms}/
-/             - else
-/               %input.replace{:name => "q", :type => "text", :value => "Search..."}/
-/               - endif
-/ %p.contact-info
-/   - if shop.customer_accounts_enabled
-/     %span.customer
-/       - if customer
-/         Welcome
-/         %a{:href => "/account"}= customer.first_name
-/         | #{'Logout' | customer_logout_link}
-/       - else
-/         = 'Customer Login' | customer_login_link
-/         - endif
-/     - endif
