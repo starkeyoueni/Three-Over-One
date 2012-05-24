@@ -17,7 +17,7 @@
       %form
         %h1.title .
         %p.description
-          = product.body_html
+          = raw product.descrip
           / TODO: Need to use the variant for the price.
           %span.price= variant.price
           = render partial: 'shared/size_selector', locals: {product: product}

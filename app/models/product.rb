@@ -44,6 +44,13 @@ class Product
     end
   end
   
+  def descrip
+    unless self.body_html.nil?
+      return body_html.gsub(/\n/, "<br/>\n")
+    end
+    body_html
+  end
+  
   def extract_size_colours
     self.colours = []
     self.sizes = []
