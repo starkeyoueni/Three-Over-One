@@ -36,15 +36,15 @@ body {
       }
     
       .product-detail {
-        padding: 20px 0;
+        padding: 0;
         margin: 20px 0;
         background: $white;
         overflow: auto;
-        height: auto;
+        height: 0;
         width: 100%;
         position: absolute;
         left: 0;
-        display: none;
+        opacity: 0;
         &.open {}
         .inner {
           width: 960px;

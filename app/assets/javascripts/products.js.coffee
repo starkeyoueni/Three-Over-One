@@ -19,12 +19,23 @@ $(document).ready ->
     return false
     
   productRow = $("#products .row")
+  productDetail = $(".product-detail")
+  
+  # object =
+  #   func: -> productRow.click (e) =>
+  #     e.preventDefault()
+  #     @.css background: 'red'
   
   showProduct = (e) ->
     e.preventDefault()
     productRow.removeClass "open"
+    productRow.find(productDetail).animate opacity: '0', height: '0'
     $(@).addClass "open"
-    $(@).child.style.display = 'block'
+    productInfo = $(@).find(productDetail)
+    pHeight = productInfo.find($(".inner")).height()
+    console.log(pHeight)
+    console.log(productInfo)
+    productInfo.animate opacity: '1', height: pHeight
     return false
     
   productRow.click showProduct
