@@ -321,8 +321,8 @@ body {
           margin: 0px;
           list-style: none;
           position: absolute;
-          left: -30px;
-          top: 0;
+          left: 0;
+          top: 20px;
           z-index: 1;
           display: none;
           font-size: 12px;
@@ -334,8 +334,6 @@ body {
             border: 1px solid $grey;
             border-radius: 12px;
             position: relative;
-            left: 0px;
-            top: 0px;
             li {
               padding: 0 25px;
             }
