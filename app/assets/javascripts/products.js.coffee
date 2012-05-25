@@ -23,15 +23,16 @@ $(document).ready ->
   
   showProduct = (e) ->
     e.preventDefault()
-    productRow.removeClass "open"
-    productRow.find(productDetail).animate height: '0'
-    productRow.animate marginBottom: '20px'
-    $(@).addClass "open"
-    productInfo = $(@).find(productDetail)
-    pHeight = productInfo.find($(".inner")).height()
-    productInfo.animate height: pHeight
-    $(@).animate marginBottom: pHeight
-    $("html").scrollTop top: '2000px'
+    if (!$(@).hasClass "open")
+      productRow.removeClass "open"
+      productRow.find(productDetail).animate height: '0'
+      productRow.animate marginBottom: '20px'
+      $(@).addClass "open"
+      productInfo = $(@).find(productDetail)
+      pHeight = productInfo.find($(".inner")).height()
+      productInfo.animate height: pHeight
+      $(@).animate marginBottom: pHeight
+      $("html").scrollTop top: '2000px'
     
   productRow.click showProduct
     
