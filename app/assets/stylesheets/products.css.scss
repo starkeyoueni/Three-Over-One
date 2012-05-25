@@ -36,19 +36,18 @@ body {
       }
     
       .product-detail {
-        padding: 0;
         margin: 20px 0;
         background: $white;
-        overflow: auto;
+        overflow: hidden;
         height: 0;
         width: 100%;
         position: absolute;
         left: 0;
-        opacity: 0;
         &.open {}
         .inner {
           width: 960px;
           margin: auto;
+          padding: 20px 0;
         }
         .product-detail-inner {
           width: 480px;

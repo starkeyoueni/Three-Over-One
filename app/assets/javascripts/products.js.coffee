@@ -29,14 +29,15 @@ $(document).ready ->
   showProduct = (e) ->
     e.preventDefault()
     productRow.removeClass "open"
-    productRow.find(productDetail).animate opacity: '0', height: '0'
+    productRow.find(productDetail).animate height: '0'
+    productRow.animate marginBottom: '0'
     $(@).addClass "open"
     productInfo = $(@).find(productDetail)
     pHeight = productInfo.find($(".inner")).height()
     console.log(pHeight)
     console.log(productInfo)
-    productInfo.animate opacity: '1', height: pHeight
-    return false
+    productInfo.animate height: pHeight
+    $(@).animate marginBottom: pHeight
     
   productRow.click showProduct
     
