@@ -21,23 +21,17 @@ $(document).ready ->
   productRow = $("#products .row")
   productDetail = $(".product-detail")
   
-  # object =
-  #   func: -> productRow.click (e) =>
-  #     e.preventDefault()
-  #     @.css background: 'red'
-  
   showProduct = (e) ->
     e.preventDefault()
     productRow.removeClass "open"
     productRow.find(productDetail).animate height: '0'
-    productRow.animate marginBottom: '0'
+    productRow.animate marginBottom: '20px'
     $(@).addClass "open"
     productInfo = $(@).find(productDetail)
     pHeight = productInfo.find($(".inner")).height()
-    console.log(pHeight)
-    console.log(productInfo)
     productInfo.animate height: pHeight
     $(@).animate marginBottom: pHeight
+    $("html").scrollTop top: '2000px'
     
   productRow.click showProduct
     

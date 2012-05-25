@@ -1,6 +1,5 @@
 #products
   - @products.each do |product|
-    .row.clearfloat
+    .row
       = render :partial => 'shared/product-thumbnail', :locals => {:product => product}
       = render :partial => 'shared/product-details',   :locals => {:product => product, variant: product.variants.first}
-

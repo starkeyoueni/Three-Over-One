@@ -5,6 +5,7 @@
 $background_colour: #F5EFE5;
 $white:             #fff;
 $line_color:        #000;
+$grey:              #ccc;
 
 /* SECTION */
 
@@ -87,7 +88,7 @@ body {
                 width: 40px;
                 height: 23px;
                 margin: 0px 20px;
-                border: 1px solid #ccc;
+                border: 1px solid $grey;
                 height: 18px;
                 position: relative;
                 &:hover .imageThumbs {
@@ -139,22 +140,21 @@ body {
           margin: 20px;
           text-align: center;
           .select {
-            width: 20px;
+            width: 70px;
             height: 20px;
             display: inline-block;
-            margin: 20px 10px 10px;
+            margin: 20px 7px 10px;
+            border: 1px solid $grey;
           }
           .add-to {
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
+            border-top: 1px solid $grey;
+            border-bottom: 1px solid $grey;
             margin-top: 10px;
             input {
               width: 35%;
-              background: #F5EFE5;
+              background: $background_colour;
               margin: 20px auto;
               padding: 10px 0px;
-              border-top: 1px solid #CCC;
-              border-bottom: 1px solid #CCC;
               text-align: center;
             }
           }
@@ -162,8 +162,6 @@ body {
       
         .selected-items {
           padding: 20px 0px;
-          /*border-top: 1px solid #ccc;
-          border-bottom: 1px solid #ccc;*/
           text-align: center;
         
           span.selected-items-total {
@@ -171,13 +169,12 @@ body {
             text-align: left;
             width: 120px;
             float: left;
-            /*border-right: 1px solid #ccc;*/
             span {
               display: block;
               font-size: 13px;
               height: 40px;
-              border-bottom: 1px solid #ccc;
-              border-top: 1px solid #ccc;
+              border-bottom: 1px solid $grey;
+              border-top: 1px solid $grey;
               line-height: 40px;
               + span {
                 height: auto;
@@ -226,7 +223,7 @@ body {
           margin: 0px;
           float: left;
           width: 320px;
-          border-bottom: 1px solid #ccc;
+          border-bottom: 1px solid $grey;
           font-size: 13px;
           font-weight: normal;
           min-height: 60px;
@@ -238,7 +235,7 @@ body {
         }
       
         .product-detail-item .item-selections {
-          border-bottom: 1px solid #ccc;
+          border-bottom: 1px solid $grey;
           width: 320px;
           float: left;
           position: relative;
@@ -286,7 +283,7 @@ body {
             width: 20px;
             line-height: 20px;
             border-radius: 10px;
-            background: #ccc;
+            background: $grey;
             text-align: center;
             position: relative;
           }
@@ -302,44 +299,49 @@ body {
       
         .select-box {
           position: relative;
-          width: 20px;
-          height: 20px;
-          margin-right: 5px;
-          float: left;
+          width: 100%;
+          height: 100%;
           span {
             display: block;
             float: left;
-            height: 20px;
-            width: 20px;
+            height: 100%;
+            width: 100%;
             line-height: 20px;
-            border-radius: 10px;
-            background: #ccc;
+            border-radius: 3px;
             text-align: center;
             position: relative;
           }
         }
+        
+        .select-box:hover .options {
+          display: block;
+        }
       
         .options {
           margin: 0px;
-          padding: 10px;
           list-style: none;
           position: absolute;
-          left: -20px;
-          top: -14px;
+          left: -30px;
+          top: 0;
           z-index: 1;
           display: none;
-          width: 92px;
           font-size: 12px;
           ul {
             margin: 0px;
-            padding: 2px 0px 2px 2px;
+            padding: 5px;
             list-style: none;
             background: $white;
-            border: 1px solid #ccc;
+            border: 1px solid $grey;
             border-radius: 12px;
             position: relative;
             left: 0px;
             top: 0px;
+            li {
+              padding: 0 25px;
+            }
+            li:hover {
+              background: $background_colour;
+            }
           }
         }
       }
