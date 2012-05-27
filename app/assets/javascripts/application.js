@@ -3,4 +3,5 @@
 //= require twitter/bootstrap
 //= require pages
 //= require products
+//= require jquery.scrollTo-min
 

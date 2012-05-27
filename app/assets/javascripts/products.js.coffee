@@ -32,15 +32,31 @@ $(document).ready ->
       pHeight = productInfo.find($(".inner")).height()
       productInfo.animate height: pHeight
       $(@).animate marginBottom: pHeight
-      $("html,body").animate scrollTop: productInfo.offset().top
+      # $("html,body").animate scrollTop: productInfo.offset().top
+      # scrollPoint = productInfo.offset().top - 70
+      productHandle = productRow.attr("data")
+      # console.log $(@).find()
+      $('html,body').stop().scrollTo productDetail
+      # console.log scrollPoint
+      console.log $(@).find(productDetail)
       console.log productInfo.offset().top
       console.log pHeight
       console.log productInfo.index()
-    
+      selectSize = productInfo.find(".size").find("li")
+      selectColor = productInfo.find(".color").find("li")
+      console.log selectSize
+      console.log selectColor
+      selectSize.click chooseVarients
+      selectColor.click chooseVarients
+      
   productRow.click showProduct
   
   chooseVarients = (e) ->
-    e.preventDefault()  
+    e.preventDefault()
+    console.log $(@)
+    
+    $(".size span").empty().html $(@)
+    
     
     
 #   // if a variable is to be accessed outside of this scope, use ->
