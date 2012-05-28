@@ -34,9 +34,9 @@ $(document).ready ->
       $(@).animate marginBottom: pHeight
       # $("html,body").animate scrollTop: productInfo.offset().top
       # scrollPoint = productInfo.offset().top - 70
-      productHandle = productRow.attr("data")
+      productHandle = productInfo.attr("data")
       # console.log $(@).find()
-      $('html,body').stop().scrollTo productDetail
+      $('html,body').stop().scrollTo productHandle
       # console.log scrollPoint
       console.log $(@).find(productDetail)
       console.log productInfo.offset().top

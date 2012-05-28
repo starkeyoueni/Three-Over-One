@@ -1,19 +1,18 @@
-<script type="text/javascript">
-function remove_item(id) {
-  document.getElementById('updates_'+id).value = 0;
-  document.getElementById('@cartform').submit();
-}
-</script>
+:javascript
+  function remove_item(id) {
+    document.getElementById('updates_'+id).value = 0;
+    document.getElementById('cartform').submit();
+  }
 
-#@cart.@cart.clearfix
-  - if @cart.item_count == 0
+#cart.cart.clearfix
+  - if @cart.items.size == 0
     .c{:style => "padding:100px 0"}
-    %h2.title{:style => "text-align:center"} Your @cart is Empty
+    %h2.title{:style => "text-align:center"} Your cart is Empty
   - else
     .more-info.clearfix
-      %span.upper @cart Overview
+      %span.upper Cart Overview
       %span.lower= "#{@cart_count} (#{@cart_total})"
-    %form{action: "/@cart", method: "post", id: "@cartform"}
+    %form{action: "/cart", method: "post", id: "cartform"}
       %table
         %tbody
           - for item in @cart.items
@@ -28,13 +27,13 @@ function remove_item(id) {
                 %input.item-quantity{type: "text", size: "4", name: "updates[#{item.id}]", id: "updates_#{item.id}", value: item.quantity, onfocus: "this.select();"}
               %td.c= money item.line_price 
               %td.c
-                %a.@cart{href: "#", onClick: "remove_item(#{item.id}); return false;"} Remove
+                %a.cart{href: "#", onClick: "remove_item(#{item.id}); return false;"} Remove
             %tr.summary
               %td{colspan:"2"}
                 %label{for: "note", style: "display:block;"}
                   %a{href: "#", onClick: "jQuery('#note').toggle(); return false;"}Add special instructions for your order&hellip;
               %td.c
-                %input#update-@cart{type: "submit", name: "update", value: "Update"}
+                %input#update-cart{type: "submit", name: "update", value: "Update"}
               %td.c
                 %span.total
                   %strong= money @cart.total_price

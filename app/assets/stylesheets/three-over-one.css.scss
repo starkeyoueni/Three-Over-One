@@ -1,5 +1,7 @@
 $background_colour: #F5EFE5;
 $line_color:        #000;
+$white:             #fff;
+$grey:              #ccc;
 
 html, body {
   margin: 0px;
@@ -62,12 +64,11 @@ a {
 header {
   display: block;
   background: $background_colour;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   position: fixed;
   width: 100%;
   min-width: 980px;
   z-index: 999;
-  
 
   .container {
     nav {
@@ -115,6 +116,36 @@ header {
         &:nth-child(-n+2) {
           padding-right: 5px;
         }
+      }
+    }
+    #shopbot {
+      width: auto;
+      float: right;
+      margin-top: 4px;
+      ul {
+        margin: 0;
+        padding: 2px;
+        float: left;
+        li {
+          float: left;
+          list-style: none;
+        }
+        .icons {
+          float: left;
+          list-style: none;
+          background: $grey;
+          padding: 4px;
+          margin: 1px;
+          border: 1px solid $line-color;
+          width: 15px;
+          height: 15px;
+          text-align: center;
+          border-radius: 1px;
+        }
+      }  
+      .divider {
+        padding-left: 2px;
+        border-left: 1px solid #000;
       }
     }
   }
