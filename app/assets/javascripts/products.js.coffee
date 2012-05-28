@@ -1,6 +1,5 @@
 $(document).ready ->
-  console.log "TEST"
-  
+
   $("input[prodvar]").click (e) ->
     e.preventDefault()
     variant_id = this.getAttribute('prodvar')
@@ -22,41 +21,41 @@ $(document).ready ->
   productDetail = $(".product-detail")
   
   showProduct = (e) ->
-    e.preventDefault()
-    if (!$(@).hasClass "open")
-      productRow.removeClass "open"
-      productRow.find(productDetail).animate height: '0'
-      productRow.animate marginBottom: '20px'
-      $(@).addClass "open"
-      productInfo = $(@).find(productDetail)
-      pHeight = productInfo.find($(".inner")).height()
-      productInfo.animate height: pHeight
-      $(@).animate marginBottom: pHeight
-      # $("html,body").animate scrollTop: productInfo.offset().top
-      # scrollPoint = productInfo.offset().top - 70
-      productHandle = productRow.attr("data")
-      # console.log $(@).find()
-      $('html,body').stop().scrollTo productDetail
-      # console.log scrollPoint
-      console.log $(@).find(productDetail)
-      console.log productInfo.offset().top
-      console.log pHeight
-      console.log productInfo.index()
-      selectSize = productInfo.find(".size").find("li")
-      selectColor = productInfo.find(".color").find("li")
-      console.log selectSize
-      console.log selectColor
-      selectSize.click chooseVarients
-      selectColor.click chooseVarients
-      
+    console.log "#{e}"
+    console.log "#{e}"
+    $("#product-detail").slideDown 500, "easeOutCubic", ->
+      $.scrollTo "#product-detail", 800, easing: "easeOutExpo"
+      $("#detail-image a").lightBox()
+    
   productRow.click showProduct
-  
-  chooseVarients = (e) ->
-    e.preventDefault()
-    console.log $(@)
-    
-    $(".size span").empty().html $(@)
-    
+
+# e.preventDefault()
+# if (!$(@).hasClass "open")
+#   productRow.removeClass "open"
+#   productRow.find(productDetail).animate height: '0'
+#   productRow.animate marginBottom: '20px'
+#   $(@).addClass "open"
+#   productInfo = $(@).find(productDetail)
+#   pHeight = productInfo.find($(".inner")).height()
+#   productInfo.animate height: pHeight
+#   $(@).animate marginBottom: pHeight
+#   # $("html,body").animate scrollTop: productInfo.offset().top
+#   # scrollPoint = productInfo.offset().top - 70
+#   productHandle = productRow.attr("data")
+#   # console.log $(@).find()
+#   $('html,body').stop().scrollTo productDetail 1000, {easing: 'easeOutExpo'}
+#   # console.log scrollPoint
+#   console.log $(@).find(productDetail)
+#   console.log productInfo.offset().top
+#   console.log pHeight
+#   console.log productInfo.index()
+#   selectSize = productInfo.find(".size").find("li")
+#   selectColor = productInfo.find(".color").find("li")
+#   console.log selectSize
+#   console.log selectColor
+#   selectSize.click chooseVarients
+#   selectColor.click chooseVarients
+      
     
     
 #   // if a variable is to be accessed outside of this scope, use ->
