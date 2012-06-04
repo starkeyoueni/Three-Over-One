@@ -2,11 +2,27 @@
   .container.clearfloat
     %nav.clearfloat
       %span.three.column.logo= link_to "THREE OVER ONE", root_path
-      %span.three.column.section.s2 HOME
       %span.three.column.menu
         .nav-items= link_to "ABOUT", about_pages_path
         &middot;
-        .nav-items.shop-nav= link_to "SHOP", ""
-        / collections_path
-        &middot;
         .nav-items= link_to "BLOG", ""
+        &middot;
+        .nav-items.shop-nav= link_to "SHOP", products_path
+        / collections_path
+      %span.three.column.shop
+        #shopbot.clearfloat
+          %span.cart-image.glyph.general 2
+          - if controller_name == 'products'
+            %ul
+              %li.icons
+                %img{src: image_path('icons/male-14.png')}
+              %li.icons
+                %img{src: image_path('icons/female-14.png')}
+              .clearfloat
+            %ul.divider
+              %li.icons
+                %span.icon B
+              %li.icons
+                %span.icon Ù
+              .clearfloat
+          =render :partial => 'shared/cartwidget'

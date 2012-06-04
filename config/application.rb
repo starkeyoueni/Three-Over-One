@@ -28,7 +28,8 @@ module Too2
       g.view_specs false
       g.helper_specs false
     end
-
+    
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.autoload_paths += %W(#{config.root}/lib)
     config.filter_parameters += [:password, :password_confirmation]
     config.encoding = "utf-8"

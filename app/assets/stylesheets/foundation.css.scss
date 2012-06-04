@@ -1,0 +1,41 @@
+/* Foundation Icons General */
+@font-face {
+  font-family: 'FoundationIconsGeneral';
+  src: asset-url('foundation-icons-general.eot', font);
+  src: asset-url('foundation-icons-general.eot?#iefix', font) format('embedded-opentype'),
+       asset-url('foundation-icons-general.woff', font) format('woff'),
+       asset-url('foundation-icons-general.ttf', font) format('truetype'),
+       asset-url('foundation-icons-general.svg#FoundationIconsGeneral', font) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* CSS to style glyphs */
+.glyph { cursor: default; font-size: 16px; line-height: 1; }
+.glyph.general { font-family: "FoundationIconsGeneral"; }
+
+/* Foundation Icons General Enclosed */
+@font-face {
+    font-family: 'FoundationIconsGeneralEnclosed';
+    src: asset-url('foundation-icons-general-enclosed.eot', font);
+    src: asset-url('foundation-icons-general-enclosed.eot?#iefix', font) format('embedded-opentype'),
+         asset-url('foundation-icons-general-enclosed.woff', font) format('woff'),
+         asset-url('foundation-icons-general-enclosed.ttf', font) format('truetype'),
+         asset-url('foundation-icons-general-enclosed.svg#FoundationIconsGeneralEnclosed', font) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* Foundation Icons Social */
+@font-face {
+    font-family: 'FoundationIconsSocial';
+    src: asset-url('foundation-icons-social.eot', font);
+    src: asset-url('foundation-icons-social.eot?#iefix', font) format('embedded-opentype'),
+         asset-url('foundation-icons-social.woff', font) format('woff'),
+         asset-url('foundation-icons-social.ttf', font) format('truetype'),
+         asset-url('foundation-icons-social.svg#FoundationIconsSocial', font) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
