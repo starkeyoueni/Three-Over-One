@@ -1,28 +1,28 @@
-.product-detail.clearfloat{:data => product.handle}
+.product-detail.clearfloat{:data => @product.handle}
   .inner.clearfloat
     .product-detail-inner.left.clearfloat.type1
       .imageInner.clearfloat
         .imageContainer
-          - if product.images.size > 0
+          - if @product.images.size > 0
             %a{:href => product.handle}
-              = image_tag product.images.first.src, alt: product.title
+              = image_tag @product.images.first.src, alt: product.title
         .imageNav
           .imageThumbs.clearfloat
             .imageThumbsContainer.clearfloat
-              - for image in product.images
+              - for image in @product.images
                 %a{:href => "#"}
                   = image_tag image.small
 
     .product-detail-inner.right.clearfloat
       %form
-        %h1.title= product.title
+        %h1.title= @product.title
         %p.description
-          = raw product.descrip
+          = raw @product.descrip
         #purchase  
           / TODO: Need to use the variant for the price.
           %span.price= money variant.price, true
-          = render partial: 'shared/size_selector', locals: {product: product}
-          = render partial: 'shared/colour_selector', locals: {product: product}
+          = render partial: 'shared/size_selector', locals: {product: @product}
+          = render partial: 'shared/colour_selector', locals: {product: @product}
           .add-to
             %input{type: "button", value: "Add to cart", prodvar: variant.id}
         %a.sizechart{:href => "#"} Size information

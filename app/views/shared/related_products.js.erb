@@ -1,0 +1,13 @@
+var recommendations = [];
+  <%- if product.metafields.recommendations.productHandles %>
+    recommendations = $.trim(<%= product.metafields.recommendations.productHandles %>).split(/[\s,;]+/);
+  <% end %>
+  
+  if (recommendations.length && recommendations[0] !== '') {
+    var list = $('ul.related-products');
+    for (var i = 0; i < recommendations.length; i++) {
+      $.getJSON('/products/' + recommendations[i] + '.js', function(product) {
+        list.append('<li><div class="image"><a href="' + product.url +'"><img src="' + product.images[0].replace(/(\.jpg|\.png|\.jpeg|\.gif)/, '_large$1') + '" /></a></div><span class="title"><a href="' + product.url + '">' + product.title + '</a></span><span class="money">' + Shopify.formatMoney(product.price, '{{ shop.money_format }}') + '</span></li>');
+      });
+    }
+  }  
