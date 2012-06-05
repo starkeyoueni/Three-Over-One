@@ -1,0 +1,37 @@
+.anythingFader                         { width: 960px; height: 634px; position: relative; margin: 0 auto; }
+.anythingFader .wrapper                { width: 960px; overflow: auto; height: 634px; position: absolute; top: 0; left: 0; }
+.anythingFader .wrapper ul             { width: 999999px; list-style: none; position: absolute; top: 0; left: 0; background: none; margin: 0; }
+.anythingFader ul li                   { display: block; float: left; padding: 0; height: 634px; width: 960px; margin: 0; text-align: center; }
+.anythingFader .arrow                  { display: block; height: 54px; width: 67px; padding: 290px 0; text-indent: -9999px; position: absolute; cursor: pointer; }
+.anythingFader .arrow:hover a		   { background: url(../images/arrows.png) no-repeat 0 0;display: block; height: 54px; width: 67px; text-align: center; outline: 0; }
+.anythingFader .arrow a:hover		   { background-position: 0 -54px; }
+.anythingFader .forward                { background-position: 0 0; right: 0; padding-left: 400px; padding-right: 13px; }
+.anythingFader .back                   { background-position: -67px 0; left: 0px; padding-right: 400px; padding-left: 13px; }
+.anythingFader .forward:hover          { background-position: 0 -200px; }
+.anythingFader .back:hover             { background-position: -67px -200px; }
+
+#thumbNav                               { position: relative; top: 323px; text-align: center; }
+#thumbNav a                             { color: black; font: 11px/18px Georgia, Serif; display: inline-block; padding: 2px 8px; height: 18px; margin: 0 5px 0 0; background: #c58b04 url(../images/cellshade.png) repeat-x; text-align: center; -moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; -webkit-border-bottom-left-radius: 5px; }
+#thumbNav a:hover                       { background-image: none; }
+#thumbNav a.cur                         { background: #e0a213; }
+
+#start-stop                             { background: green; background-image: url(../images/cellshade.png); background-repeat: repeat-x; color: white; padding: 2px 5px; width: 40px; text-align: center; position: absolute; right: 45px; top: 323px; -moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; -webkit-border-bottom-left-radius: 5px; }
+#start-stop .playing                    { background-color: red; }
+#start-stop:hover                       { background-image: none; }
+
+/*
+  Prevents
+*/
+.anythingFader .wrapper ul ul          { position: static; margin: 0; background: none; overflow: visible; width: auto; border: 0; }
+.anythingFader .wrapper ul ul li       { float: none; height: auto; width: auto; background: none; }
+
+body								   { font-weight: 100; font-size: 12px; text-transform: uppercase; color: #12444b; }
+#header								   { width: 960px; margin: 15px auto;/* border-bottom: 1px solid #12444b; */ }
+#title								   { float: left; }
+#title h4							   { font-size: 12px; text-transform: uppercase; color: #12444b; font-weight: 100; }
+#white-stripe						   { width: 100%; height: 634px; padding: 10px 0; background: #fff; }
+#contact							   { float: right; }
+#contact span						   { font-size: 10px; }
+a, a:visited						   { color: #12444b; }
+a:hover, a:active					   { text-decoration: none; }
+#footer								   { width: 960px; margin: 15px auto; text-align: center; /* border-bottom: 1px solid #12444b; */ }
