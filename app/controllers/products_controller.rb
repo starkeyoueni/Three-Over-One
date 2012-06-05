@@ -9,6 +9,14 @@ class ProductsController < ApplicationController
       format.json { render json: @products }
     end
   end
+  
+  def detail
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.json {render json: @product}
+      format.js
+    end
+  end
 
   # GET /products/1
   # GET /products/1.json
