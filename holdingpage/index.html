@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="Honest, Hardworking Apparel" />
+<meta name="keywords" content="three over one, clothing, honest, jim thompson, england, fashion, jim thompson holdings, design, clothes, fashion label, sourcing, apparel" />
+<meta name="author" content="ThreeOverOne" />
+<link href='icon.png' rel='icon' type='image/vnd.microsoft.icon'/>
+
+<title>THREE OVER ONE / Honest, Hardworking Apparel</title>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+<!-- Anything Slider -->
+	<link rel="stylesheet" href="anythingFader/fader.css" type="text/css" media="screen" />
+    <!-- <link rel="stylesheet" href="http://css-tricks.com/examples/AnythingFader/css/page.css" type="text/css" media="screen" /> -->
+	<script src="anythingFader/jquery.anythingfader.js" type="text/javascript" charset="utf-8"></script>
+<!-- End Anything Slider -->
+
+<style type="text/css">
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #f6efe5;
+}
+
+</style>
+
+<script type="text/javascript">
+		function formatText(index, panel) {
+		  return index + "";
+	    }
+    
+        $(function () {
+        
+            $('.anythingFader').anythingFader({
+                autoPlay: true,                 // This turns off the entire FUNCTIONALY, not just if it starts running or not.
+                delay: 5000,                    // How long between slide transitions in AutoPlay mode
+                startStopped: false,            // If autoPlay is on, this can force it to start stopped
+                animationTime: 500,             // How long the slide transition takes
+                hashTags: true,                 // Should links change the hashtag in the URL?
+                buildNavigation: false,          // If true, builds and list of anchor links to link to each slide
+                pauseOnHover: false,             // If true, and autoPlay is enabled, the show will pause on hover
+                startText: "Go",                // Start text
+                stopText: "Stop",               // Stop text
+                navigationFormatter: formatText   // Details at the top of the file on this use (advanced use)
+            });
+            
+            $("#slide-jump").click(function(){
+                $('.anythingFader').anythingFader(17);
+            });
+            
+        });
+</script>
+
+</head>
+
+<body>
+
+	<div id="header">
+    	<div id="title">
+        	<h4>Three Over One</h4>
+        </div>
+        <div id="contact">
+        	<span><a href="mailto:info@threeoverone.com">info@threeoverone.com</a> / +61-2-9360-3609</span>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+
+<div id="white-stripe">
+<div class="anythingFader">
+<div class="wrapper">
+<ul>
+	<li><img src="images/ThreeOverOne-1.jpg" /></li>
+	<li><img src="images/ThreeOverOne-2.jpg" /></li>
+	<li><img src="images/ThreeOverOne-3.jpg" /></li>
+	<li><img src="images/ThreeOverOne-4.jpg" /></li>
+	<li><img src="images/ThreeOverOne-5.jpg" /></li>
+	<li><img src="images/ThreeOverOne-6.jpg" /></li>
+	<li><img src="images/ThreeOverOne-7.jpg" /></li>
+	<li><img src="images/ThreeOverOne-8.jpg" /></li>
+	<li><img src="images/ThreeOverOne-9.jpg" /></li>
+	<li><img src="images/ThreeOverOne-10.jpg" /></li>
+	<li><img src="images/ThreeOverOne-11.jpg" /></li>
+	<li><img src="images/ThreeOverOne-12.jpg" /></li>
+	<li><img src="images/ThreeOverOne-13.jpg" /></li>
+	<li><img src="images/ThreeOverOne-14.jpg" /></li>
+	<li><img src="images/ThreeOverOne-15.jpg" /></li>
+	<li><img src="images/ThreeOverOne-16.jpg" /></li>
+	<li><img src="images/ThreeOverOne-17.jpg" /></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="footer">Online store arriving soon.</div>
+
+</body>
+</html>
